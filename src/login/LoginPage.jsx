@@ -273,6 +273,7 @@ const LoginPage = ({
             errorMessage={errors.password}
             floatingLabel={formatMessage(messages['login.password.label'])}
           />
+          <h1>Happy Learning!</h1>
           <StatefulButton
             name="sign-in"
             id="sign-in"
