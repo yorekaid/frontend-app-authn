@@ -239,7 +239,6 @@ const LoginPage = ({
         finishAuthUrl={finishAuthUrl}
       />
       <div className="mw-xs mt-3 mb-2">
-      <h1>Happy Learning!</h1>
         <LoginFailureMessage
           errorCode={errorCode.type}
           errorCount={errorCode.count}
