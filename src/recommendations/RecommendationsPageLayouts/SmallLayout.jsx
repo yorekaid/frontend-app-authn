@@ -18,29 +18,29 @@ const RecommendationsSmallLayout = (props) => {
 
   if (isLoading) {
     return (
-      <>
-        <Skeleton height={36} className="mb-3" />
-        <RecommendationsList
-          recommendations={loadingCoursesPlaceholders}
-          userId={userId}
-          isLoading
-        />
-      </>
+          <>
+              <Skeleton height={36} className="mb-3" />
+              <RecommendationsList
+                  recommendations={loadingCoursesPlaceholders}
+                  userId={userId}
+                  isLoading
+                />
+            </>
     );
   }
 
   if (personalizedRecommendations.length) {
     return (
-      <span id="recommendations-small-layout">
-        <h1 className="h3 text-sm-center mb-4.5 text-left recommendations-container__heading">
-          {formatMessage(messages['recommendation.page.heading'])}
-        </h1>
+          <span id="recommendations-small-layout">
+              <h1 className="h3 text-sm-center mb-4.5 text-left recommendations-container__heading">
+                  {formatMessage(messages['recommendation.page.heading'])}
+                </h1>
 
-        <RecommendationsList
-          recommendations={personalizedRecommendations}
-          userId={userId}
-        />
-      </span>
+              <RecommendationsList
+                  recommendations={personalizedRecommendations}
+                  userId={userId}
+                />
+            </span>
     );
   }
 

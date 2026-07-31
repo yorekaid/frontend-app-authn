@@ -144,13 +144,13 @@ describe('Logistration', () => {
     });
 
     return (
-      <QueryClientProvider client={queryClient}>
-        <IntlProvider locale="en">
-          <MemoryRouter>
-            {children}
-          </MemoryRouter>
-        </IntlProvider>
-      </QueryClientProvider>
+          <QueryClientProvider client={queryClient}>
+              <IntlProvider locale="en">
+                  <MemoryRouter>
+                      {children}
+                    </MemoryRouter>
+                </IntlProvider>
+            </QueryClientProvider>
     );
   };
 

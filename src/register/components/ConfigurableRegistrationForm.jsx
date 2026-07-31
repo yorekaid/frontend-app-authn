@@ -121,41 +121,41 @@ const ConfigurableRegistrationForm = (props) => {
             showTermsOfServiceAndHonorCode = true;
           } else {
             honorCode.push(
-              <span key={fieldData.name}>
-                <HonorCode
-                  fieldType={fieldData.type}
-                  value={formFields[fieldData.name]}
-                  onChangeHandler={handleOnChange}
-                  errorMessage={fieldErrors[fieldData.name]}
-                />
-              </span>,
+                <span key={fieldData.name}>
+                    <HonorCode
+                        fieldType={fieldData.type}
+                        value={formFields[fieldData.name]}
+                        onChangeHandler={handleOnChange}
+                        errorMessage={fieldErrors[fieldData.name]}
+                      />
+                  </span>,
             );
           }
           break;
         case FIELDS.TERMS_OF_SERVICE:
           honorCode.push(
             <span key={fieldData.name}>
-              <TermsOfService
-                value={formFields[fieldData.name]}
-                onChangeHandler={handleOnChange}
-                errorMessage={fieldErrors[fieldData.name]}
-              />
-            </span>,
+                <TermsOfService
+                    value={formFields[fieldData.name]}
+                    onChangeHandler={handleOnChange}
+                    errorMessage={fieldErrors[fieldData.name]}
+                  />
+              </span>,
           );
           break;
         default:
           formFieldDescriptions.push(
             <span key={fieldData.name}>
-              <FormFieldRenderer
-                fieldData={fieldData}
-                value={formFields[fieldData.name]}
-                onChangeHandler={handleOnChange}
-                handleBlur={handleOnBlur}
-                handleFocus={handleOnFocus}
-                errorMessage={fieldErrors[fieldData.name]}
-                isRequired
-              />
-            </span>,
+                <FormFieldRenderer
+                    fieldData={fieldData}
+                    value={formFields[fieldData.name]}
+                    onChangeHandler={handleOnChange}
+                    handleBlur={handleOnBlur}
+                    handleFocus={handleOnFocus}
+                    errorMessage={fieldErrors[fieldData.name]}
+                    isRequired
+                  />
+              </span>,
           );
       }
     });
@@ -163,54 +163,54 @@ const ConfigurableRegistrationForm = (props) => {
 
   if (flags.showConfigurableEdxFields || showCountryField) {
     formFieldDescriptions.push(
-      <span key="country">
-        <CountryField
-          countryList={countryList}
-          selectedCountry={formFields.country}
-          errorMessage={fieldErrors.country || ''}
-          onChangeHandler={handleOnChange}
-          handleErrorChange={handleErrorChange}
-          onBlurHandler={handleOnBlur}
-          onFocusHandler={handleOnFocus}
-        />
-      </span>,
+          <span key="country">
+              <CountryField
+                  countryList={countryList}
+                  selectedCountry={formFields.country}
+                  errorMessage={fieldErrors.country || ''}
+                  onChangeHandler={handleOnChange}
+                  handleErrorChange={handleErrorChange}
+                  onBlurHandler={handleOnBlur}
+                  onFocusHandler={handleOnFocus}
+                />
+            </span>,
     );
   }
 
   if (flags.showMarketingEmailOptInCheckbox) {
     formFieldDescriptions.push(
-      <span key="marketing_email_opt_in">
-        <FormFieldRenderer
-          fieldData={{
-            type: 'checkbox',
-            label: formatMessage(messages['registration.opt.in.label'], { siteName: getConfig().SITE_NAME }),
-            name: 'marketingEmailsOptIn',
-          }}
-          value={formFields.marketingEmailsOptIn}
-          className="form-field--checkbox"
-          onChangeHandler={handleOnChange}
-          handleBlur={handleOnBlur}
-          handleFocus={handleOnFocus}
-        />
-      </span>,
+          <span key="marketing_email_opt_in">
+              <FormFieldRenderer
+                  fieldData={{
+                      type: 'checkbox',
+                      label: formatMessage(messages['registration.opt.in.label'], { siteName: getConfig().SITE_NAME }),
+                      name: 'marketingEmailsOptIn',
+                    }}
+                  value={formFields.marketingEmailsOptIn}
+                  className="form-field--checkbox"
+                  onChangeHandler={handleOnChange}
+                  handleBlur={handleOnBlur}
+                  handleFocus={handleOnFocus}
+                />
+            </span>,
     );
   }
 
   if (flags.showConfigurableEdxFields || showTermsOfServiceAndHonorCode) {
     formFieldDescriptions.push(
-      <span key="honor_code">
-        <HonorCode fieldType="tos_and_honor_code" onChangeHandler={handleOnChange} value={formFields.honor_code} />
-      </span>,
+          <span key="honor_code">
+              <HonorCode fieldType="tos_and_honor_code" onChangeHandler={handleOnChange} value={formFields.honor_code} />
+            </span>,
     );
   }
 
   return (
-    <>
-      {formFieldDescriptions}
-      <div>
-        {honorCode}
-      </div>
-    </>
+      <>
+          {formFieldDescriptions}
+          <div>
+              {honorCode}
+            </div>
+        </>
   );
 };
 

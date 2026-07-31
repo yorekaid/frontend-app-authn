@@ -79,17 +79,17 @@ describe('ResetPasswordPage', () => {
     });
 
     return render(
-      <QueryClientProvider client={queryClient}>
-        <RegisterProvider>
-          <IntlProvider locale="en" messages={{}}>
-            <MemoryRouter>
-              <BaseContainer>
-                <ResetPasswordPage />
-              </BaseContainer>
-            </MemoryRouter>
-          </IntlProvider>
-        </RegisterProvider>
-      </QueryClientProvider>,
+          <QueryClientProvider client={queryClient}>
+              <RegisterProvider>
+                  <IntlProvider locale="en" messages={{}}>
+                      <MemoryRouter>
+                          <BaseContainer>
+                              <ResetPasswordPage />
+                            </BaseContainer>
+                        </MemoryRouter>
+                    </IntlProvider>
+                </RegisterProvider>
+            </QueryClientProvider>,
     );
   };
 

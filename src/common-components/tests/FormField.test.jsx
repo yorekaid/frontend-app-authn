@@ -46,15 +46,15 @@ describe('PasswordField', () => {
   let mockMutate;
 
   const renderWrapper = (children) => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <RegisterProvider>
-            {children}
-          </RegisterProvider>
-        </MemoryRouter>
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <RegisterProvider>
+                      {children}
+                    </RegisterProvider>
+                </MemoryRouter>
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   beforeEach(() => {

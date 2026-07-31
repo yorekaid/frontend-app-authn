@@ -39,11 +39,11 @@ describe('ChangePasswordPromptTests', () => {
     window.location = { href: getConfig().BASE_URL };
 
     render(
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <ChangePasswordPrompt {...props} />
-        </MemoryRouter>
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <ChangePasswordPrompt {...props} />
+                </MemoryRouter>
+            </IntlProvider>,
     );
 
     fireEvent.click(screen.getByText('Close'));
@@ -56,11 +56,11 @@ describe('ChangePasswordPromptTests', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <ChangePasswordPrompt {...props} />
-        </MemoryRouter>
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <ChangePasswordPrompt {...props} />
+                </MemoryRouter>
+            </IntlProvider>,
     );
 
     await act(async () => {

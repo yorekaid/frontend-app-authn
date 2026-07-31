@@ -35,15 +35,15 @@ describe('CountryField', () => {
   let queryClient;
 
   const renderWrapper = (children) => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        <Router>
-          <RegisterProvider>
-            {children}
-          </RegisterProvider>
-        </Router>
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              <Router>
+                  <RegisterProvider>
+                      {children}
+                    </RegisterProvider>
+                </Router>
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   beforeEach(() => {

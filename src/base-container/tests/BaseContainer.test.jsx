@@ -13,16 +13,16 @@ const LargeScreen = {
 describe('Base component tests', () => {
   it('should show default layout', () => {
     const { container } = render(
-      <IntlProvider locale="en">
-        <BaseContainer>
-          <div>Test Content</div>
-        </BaseContainer>
-      </IntlProvider>,
-      LargeScreen,
+          <IntlProvider locale="en">
+              <BaseContainer>
+                  <div>Test Content</div>
+                </BaseContainer>
+            </IntlProvider>,
+            LargeScreen,
     );
 
     expect(container.querySelector('.banner__image')).toBeNull();
-    expect(container.querySelector('.large-screen-svg-primary')).toBeDefined();
+    expect(container.querySelector('.brand-gradient')).toBeDefined();
   });
 
   it('renders Image layout when ENABLE_IMAGE_LAYOUT configuration is enabled', () => {
@@ -31,12 +31,12 @@ describe('Base component tests', () => {
     });
 
     const { container } = render(
-      <IntlProvider locale="en">
-        <BaseContainer showWelcomeBanner={false}>
-          <div>Test Content</div>
-        </BaseContainer>
-      </IntlProvider>,
-      LargeScreen,
+          <IntlProvider locale="en">
+              <BaseContainer showWelcomeBanner={false}>
+                  <div>Test Content</div>
+                </BaseContainer>
+            </IntlProvider>,
+            LargeScreen,
     );
 
     expect(container.querySelector('.banner__image')).toBeDefined();

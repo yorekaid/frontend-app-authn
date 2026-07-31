@@ -92,7 +92,14 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
   font-size: 0.875rem;
   line-height: 1.5;
   height: 2.75rem;
+  border-radius: 0.5rem;
+  border-color: var(--pgn-color-gray-300);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
+  &:focus {
+    border-color: var(--pgn-color-primary-base);
+    box-shadow: 0 0 0 0.2rem var(--pgn-color-primary-100);
+  }
 }
 
 .btn-social {
@@ -105,9 +112,16 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 
   background-color: var(--pgn-color-white);
   border: 1px solid var(--pgn-color-primary-base);
+  border-radius: 0.5rem;
   width: 224px;
   height: 36px;
   color: var(--pgn-color-primary-base);
+  transition: box-shadow 0.15s ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }
 
   .btn-tpa__image-icon{
     background-color: transparent;
@@ -123,11 +137,37 @@ $elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
   align-items: center;
   padding-left: 1rem;
   width: 14rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
 
   .btn-tpa__image-icon {
     background-color: transparent;
     max-height: 24px;
     max-width: 24px;
+  }
+}
+
+.divider-heading {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--pgn-color-gray-500);
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--pgn-color-gray-300);
+  }
+
+  &::before {
+    margin-right: 0.75rem;
+  }
+
+  &::after {
+    margin-left: 0.75rem;
   }
 }
 

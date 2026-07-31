@@ -24,12 +24,12 @@ describe('HonorCodeTest', () => {
   it('should render error msg if honor code is not checked', () => {
     const errorMessage = `You must agree to the ${getConfig().SITE_NAME} Honor Code`;
     const { container } = render(
-      <IntlProvider locale="en">
-        <HonorCode
-          errorMessage={errorMessage}
-          onChangeHandler={changeHandler}
-        />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <HonorCode
+                  errorMessage={errorMessage}
+                  onChangeHandler={changeHandler}
+                />
+            </IntlProvider>,
     );
     const errorElement = container.querySelector('.form-text-size'); // Adjust the selector as per your component
 
@@ -39,9 +39,9 @@ describe('HonorCodeTest', () => {
   it('should render Honor code field', () => {
     const expectedMsg = 'I agree to the Your Platform Name Here\u00a0Honor Codein a new tab';
     const { container } = render(
-      <IntlProvider locale="en">
-        <HonorCode onChangeHandler={changeHandler} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <HonorCode onChangeHandler={changeHandler} />
+            </IntlProvider>,
     );
 
     const honorCodeField = container.querySelector('#honor-code');
@@ -52,9 +52,9 @@ describe('HonorCodeTest', () => {
 
   it('should render Terms of Service and Honor code field', () => {
     const { container } = render(
-      <IntlProvider locale="en">
-        <HonorCode fieldType="tos_and_honor_code" onChangeHandler={changeHandler} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <HonorCode fieldType="tos_and_honor_code" onChangeHandler={changeHandler} />
+            </IntlProvider>,
     );
     const expectedMsg = 'By creating an account, you agree to the Terms of Service and Honor Code and you '
                         + 'acknowledge that Your Platform Name Here and each Member process your personal data in '

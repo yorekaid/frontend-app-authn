@@ -16,14 +16,14 @@ const ProductCardFooter = ({
 
   if (courseLength) {
     return (
-      <p className="x-small">
-        {intl.formatMessage(
-          cardFooterMessages[
-            'recommendation.product-card.footer-text.number-of-courses'
-          ],
-          { length: courseLength, label: courseLengthLabel },
-        )}
-      </p>
+          <p className="x-small">
+              {intl.formatMessage(
+                  cardFooterMessages[
+                    'recommendation.product-card.footer-text.number-of-courses'
+                  ],
+                  { length: courseLength, label: courseLengthLabel },
+                )}
+            </p>
     );
   }
 
@@ -34,17 +34,17 @@ const ProductCardFooter = ({
       const threeFactsArrangement = [1, 3, 0];
       const twoFactsArrangement = [0, 2];
       return (
-        <>
-          {(quickFactsCount > 3 ? threeFactsArrangement : twoFactsArrangement)
-            .map((index) => quickFacts[index])
-            .filter(Boolean)
-            .map((fact, idx) => (
-              <p key={fact.text} className="d-inline-block x-small">
-                {idx > 0 && <span className="p-2">•</span>}
-                {fact && fact.text}
-              </p>
-            ))}
-        </>
+              <>
+                  {(quickFactsCount > 3 ? threeFactsArrangement : twoFactsArrangement)
+                      .map((index) => quickFacts[index])
+                      .filter(Boolean)
+                      .map((fact, idx) => (
+                          <p key={fact.text} className="d-inline-block x-small">
+                              {idx > 0 && <span className="p-2">•</span>}
+                              {fact && fact.text}
+                            </p>
+                      ))}
+                </>
       );
     }
   }

@@ -29,9 +29,9 @@ describe('SocialAuthProviders', () => {
     props = { socialAuthProviders: [appleProvider, facebookProvider] };
 
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <SocialAuthProviders {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <SocialAuthProviders {...props} />
+            </IntlProvider>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -47,9 +47,9 @@ describe('SocialAuthProviders', () => {
     };
 
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <SocialAuthProviders {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <SocialAuthProviders {...props} />
+            </IntlProvider>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -65,9 +65,9 @@ describe('SocialAuthProviders', () => {
     };
 
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <SocialAuthProviders {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <SocialAuthProviders {...props} />
+            </IntlProvider>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

@@ -23,19 +23,19 @@ module.exports = RRD;
 
 const TestApp = () => (
   <Router>
-    <div>
-      <Routes>
-        <Route path={REGISTER_PAGE} element={<UnAuthOnlyRoute><span>Register Page</span></UnAuthOnlyRoute>} />
-      </Routes>
-    </div>
-  </Router>
+      <div>
+          <Routes>
+              <Route path={REGISTER_PAGE} element={<UnAuthOnlyRoute><span>Register Page</span></UnAuthOnlyRoute>} />
+            </Routes>
+        </div>
+    </Router>
 );
 
 describe('UnAuthOnlyRoute', () => {
   const routerWrapper = () => (
-    <MemoryRouter initialEntries={[REGISTER_PAGE]}>
-      <TestApp />
-    </MemoryRouter>
+      <MemoryRouter initialEntries={[REGISTER_PAGE]}>
+          <TestApp />
+        </MemoryRouter>
   );
 
   afterEach(() => {

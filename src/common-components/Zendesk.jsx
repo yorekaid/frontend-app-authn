@@ -52,7 +52,7 @@ const ZendeskHelp = () => {
   }
 
   return (
-    <Zendesk defer zendeskKey={getConfig().ZENDESK_KEY} {...setting} />
+      <Zendesk defer zendeskKey={getConfig().ZENDESK_KEY} {...setting} />
   );
 };
 

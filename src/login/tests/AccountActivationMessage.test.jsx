@@ -16,9 +16,9 @@ describe('AccountActivationMessage', () => {
 
   it('should match account already activated message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.INFO} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.INFO} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'This account has already been activated.';
@@ -31,9 +31,9 @@ describe('AccountActivationMessage', () => {
 
   it('should match account activated success message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.SUCCESS} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.SUCCESS} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'Success! You have activated your account.'
@@ -48,9 +48,9 @@ describe('AccountActivationMessage', () => {
 
   it('should match account activation error message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.ERROR} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.ERROR} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'Your account could not be activated'
@@ -64,9 +64,9 @@ describe('AccountActivationMessage', () => {
 
   it('should not display anything for invalid message type', () => {
     const { container } = render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType="invalid-message" />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType="invalid-message" />
+            </IntlProvider>,
     );
 
     const accountActivationMessage = container.querySelectorAll('#account-activation-message');
@@ -83,9 +83,9 @@ describe('EmailConfirmationMessage', () => {
 
   it('should match email already confirmed message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.INFO} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.INFO} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'This email has already been confirmed.';
@@ -98,9 +98,9 @@ describe('EmailConfirmationMessage', () => {
 
   it('should match email confirmation success message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.SUCCESS} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.SUCCESS} />
+            </IntlProvider>,
     );
     const expectedMessage = 'Success! You have confirmed your email.Sign in to continue.';
 
@@ -112,9 +112,9 @@ describe('EmailConfirmationMessage', () => {
 
   it('should match email confirmation error message', () => {
     render(
-      <IntlProvider locale="en">
-        <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.ERROR} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <AccountActivationMessage messageType={ACCOUNT_ACTIVATION_MESSAGE.ERROR} />
+            </IntlProvider>,
     );
     const expectedMessage = 'Your email could not be confirmed'
                             + 'Something went wrong, please contact support to resolve this issue.';

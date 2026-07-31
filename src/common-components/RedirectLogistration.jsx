@@ -47,15 +47,15 @@ const RedirectLogistration = (props) => {
       }
       const registrationResult = { redirectUrl: finalRedirectUrl, success };
       return (
-        <Navigate
-          to={AUTHN_PROGRESSIVE_PROFILING}
-          state={{
-            registrationResult,
-            optionalFields,
-            authenticatedUser,
-          }}
-          replace
-        />
+              <Navigate
+                  to={AUTHN_PROGRESSIVE_PROFILING}
+                  state={{
+                      registrationResult,
+                      optionalFields,
+                      authenticatedUser,
+                    }}
+                  replace
+                />
       );
     }
 
@@ -63,15 +63,15 @@ const RedirectLogistration = (props) => {
     if (redirectToRecommendationsPage) {
       const registrationResult = { redirectUrl: finalRedirectUrl, success };
       return (
-        <Navigate
-          to={RECOMMENDATIONS}
-          state={{
-            registrationResult,
-            educationLevel,
-            userId,
-          }}
-          replace
-        />
+              <Navigate
+                  to={RECOMMENDATIONS}
+                  state={{
+                      registrationResult,
+                      educationLevel,
+                      userId,
+                    }}
+                  replace
+                />
       );
     }
 

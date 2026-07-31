@@ -43,9 +43,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.We recently changed our password requirements'
@@ -71,9 +71,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.In order to sign in, you need to activate your account. '
@@ -101,9 +101,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.The username, email or password you entered is incorrect. '
@@ -127,9 +127,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.The username, email, or password you entered is incorrect. Please try again.';
@@ -147,9 +147,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.To protect your account, it\'s been temporarily locked. Try again in 30 minutes.To be on the safe side, you can reset your password before trying again.';
@@ -171,9 +171,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.The username, email, or password you entered is incorrect. Please try again or reset your password.';
@@ -191,9 +191,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.Too many failed login attempts. Try again later.';
@@ -211,9 +211,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.An error has occurred. Try refreshing the page, or check your internet connection.';
@@ -231,9 +231,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.Please fill in the fields below.';
@@ -250,9 +250,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessage = 'We couldn\'t sign you in.An error has occurred. Try refreshing the page, or check your internet connection.';
@@ -270,9 +270,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const expectedMessageSubstring = 'We are sorry, you are not authorized to access';
@@ -295,11 +295,11 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <LoginFailureMessage {...props} />
-        </MemoryRouter>
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <LoginFailureMessage {...props} />
+                </MemoryRouter>
+            </IntlProvider>,
     );
 
     const message = 'Our system detected that your password is vulnerable. '
@@ -321,11 +321,11 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <LoginFailureMessage {...props} />
-        </MemoryRouter>
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <LoginFailureMessage {...props} />
+                </MemoryRouter>
+            </IntlProvider>,
     );
 
     expect(screen.getByText(
@@ -354,9 +354,9 @@ describe('LoginFailureMessage', () => {
     };
 
     render(
-      <IntlProvider locale="en">
-        <LoginFailureMessage {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <LoginFailureMessage {...props} />
+            </IntlProvider>,
     );
 
     const errorMessage = "We couldn't sign you in.As test.com user, You must login with your test.com Google account.";

@@ -20,26 +20,26 @@ module.exports = RRD;
 
 const TestApp = () => (
   <Router>
-    <div>
-      <Routes>
-        <Route
-          path={REGISTER_EMBEDDED_PAGE}
-          element={<EmbeddedRegistrationRoute><span>Embedded Register Page</span></EmbeddedRegistrationRoute>}
-        />
-        <Route
-          path={PAGE_NOT_FOUND}
-          element={<span>Page not found</span>}
-        />
-      </Routes>
-    </div>
-  </Router>
+      <div>
+          <Routes>
+              <Route
+                  path={REGISTER_EMBEDDED_PAGE}
+                  element={<EmbeddedRegistrationRoute><span>Embedded Register Page</span></EmbeddedRegistrationRoute>}
+                />
+              <Route
+                  path={PAGE_NOT_FOUND}
+                  element={<span>Page not found</span>}
+                />
+            </Routes>
+        </div>
+    </Router>
 );
 
 describe('EmbeddedRegistrationRoute', () => {
   const routerWrapper = () => (
-    <MemoryRouter initialEntries={[REGISTER_EMBEDDED_PAGE]}>
-      <TestApp />
-    </MemoryRouter>
+      <MemoryRouter initialEntries={[REGISTER_EMBEDDED_PAGE]}>
+          <TestApp />
+        </MemoryRouter>
   );
 
   afterEach(() => {

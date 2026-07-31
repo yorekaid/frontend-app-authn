@@ -20,35 +20,35 @@ const SocialAuthProviders = (props) => {
   }
 
   const socialAuth = socialAuthProviders.map((provider, index) => (
-    <button
-      id={provider.id}
-      key={provider.id}
-      type="button"
-      className={`btn-social btn-${provider.id} ${index % 2 === 0 ? 'mr-3' : ''}`}
-      data-provider-url={referrer === LOGIN_PAGE ? provider.loginUrl : provider.registerUrl}
-      onClick={handleSubmit}
-    >
-      {provider.iconImage ? (
-        <div aria-hidden="true">
-          <img className="btn-tpa__image-icon" src={provider.iconImage} alt={`icon ${provider.name}`} />
-        </div>
-      )
-        : (
-          <div className="btn-tpa__font-container" aria-hidden="true">
-            {SUPPORTED_ICON_CLASSES.includes(provider.iconClass) ? (
-              <FontAwesomeIcon icon={['fab', provider.iconClass]} />)
+      <button
+          id={provider.id}
+          key={provider.id}
+          type="button"
+          className={`btn-social btn-${provider.id} ${index % 2 === 0 ? 'mr-3' : ''}`}
+          data-provider-url={referrer === LOGIN_PAGE ? provider.loginUrl : provider.registerUrl}
+          onClick={handleSubmit}
+        >
+          {provider.iconImage ? (
+              <div aria-hidden="true">
+                  <img className="btn-tpa__image-icon" src={provider.iconImage} alt={`icon ${provider.name}`} />
+                </div>
+            )
               : (
-                <Icon className="h-75" src={Login} />
+                  <div className="btn-tpa__font-container" aria-hidden="true">
+                      {SUPPORTED_ICON_CLASSES.includes(provider.iconClass) ? (
+                          <FontAwesomeIcon icon={['fab', provider.iconClass]} />)
+                          : (
+                              <Icon className="h-75" src={Login} />
+                          )}
+                    </div>
               )}
-          </div>
-        )}
-      <span id="provider-name" className="notranslate mr-auto pl-2" aria-hidden="true">{provider.name}</span>
-      <span className="sr-only">
-        {referrer === LOGIN_PAGE
-          ? formatMessage(messages['sso.sign.in.with'], { providerName: provider.name })
-          : formatMessage(messages['sso.create.account.using'], { providerName: provider.name })}
-      </span>
-    </button>
+          <span id="provider-name" className="notranslate mr-auto pl-2" aria-hidden="true">{provider.name}</span>
+          <span className="sr-only">
+              {referrer === LOGIN_PAGE
+                  ? formatMessage(messages['sso.sign.in.with'], { providerName: provider.name })
+                  : formatMessage(messages['sso.create.account.using'], { providerName: provider.name })}
+            </span>
+        </button>
   ));
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

@@ -54,11 +54,11 @@ const NameField = (props) => {
   };
 
   return (
-    <FormGroup
-      {...props}
-      handleBlur={handleOnBlur}
-      handleFocus={handleOnFocus}
-    />
+      <FormGroup
+          {...props}
+          handleBlur={handleOnBlur}
+          handleFocus={handleOnFocus}
+        />
   );
 };
 

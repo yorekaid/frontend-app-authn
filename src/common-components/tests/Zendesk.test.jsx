@@ -8,9 +8,9 @@ jest.mock('react-zendesk', () => 'Zendesk');
 describe('Zendesk Help', () => {
   it('should match login page third party auth alert message snapshot', () => {
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <Zendesk />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <Zendesk />
+            </IntlProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

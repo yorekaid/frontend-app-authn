@@ -150,13 +150,13 @@ describe('ProgressiveProfilingTests', () => {
     mockUseProgressiveProfilingContext.mockReturnValue(progressiveProfilingContext);
 
     return render(
-      <QueryClientProvider client={queryClient}>
-        <IntlProvider locale="en" messages={{}}>
-          <MemoryRouter>
-            {children}
-          </MemoryRouter>
-        </IntlProvider>
-      </QueryClientProvider>,
+          <QueryClientProvider client={queryClient}>
+              <IntlProvider locale="en" messages={{}}>
+                  <MemoryRouter>
+                      {children}
+                    </MemoryRouter>
+                </IntlProvider>
+            </QueryClientProvider>,
     );
   };
 
@@ -372,14 +372,14 @@ describe('ProgressiveProfilingTests', () => {
     it('should redirect to recommendations page if recommendations are enabled', () => {
       // Mock success state to trigger redirect
       renderWithProviders(
-        <ProgressiveProfiling />,
-        {
-          progressiveProfilingContext: {
-            submitState: 'default',
-            showError: false,
-            success: true,
-          },
-        },
+              <ProgressiveProfiling />,
+                {
+                  progressiveProfilingContext: {
+                    submitState: 'default',
+                    showError: false,
+                    success: true,
+                  },
+                },
       );
 
       // Check that Navigate component would be rendered
@@ -399,14 +399,14 @@ describe('ProgressiveProfilingTests', () => {
       });
 
       renderWithProviders(
-        <ProgressiveProfiling />,
-        {
-          progressiveProfilingContext: {
-            submitState: 'default',
-            showError: false,
-            success: true,
-          },
-        },
+              <ProgressiveProfiling />,
+                {
+                  progressiveProfilingContext: {
+                    submitState: 'default',
+                    showError: false,
+                    success: true,
+                  },
+                },
       );
       expect(window.location.href).toEqual(redirectUrl);
     });
@@ -531,14 +531,14 @@ describe('ProgressiveProfilingTests', () => {
       });
 
       renderWithProviders(
-        <ProgressiveProfiling />,
-        {
-          progressiveProfilingContext: {
-            submitState: 'default',
-            showError: false,
-            success: true,
-          },
-        },
+              <ProgressiveProfiling />,
+                {
+                  progressiveProfilingContext: {
+                    submitState: 'default',
+                    showError: false,
+                    success: true,
+                  },
+                },
       );
 
       expect(window.location.href).toBe(redirectUrl);

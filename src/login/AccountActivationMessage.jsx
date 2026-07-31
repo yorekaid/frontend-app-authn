@@ -35,19 +35,19 @@ const AccountActivationMessage = ({ messageType }) => {
     }
     case ACCOUNT_ACTIVATION_MESSAGE.ERROR: {
       const supportLink = (
-        <Alert.Link href={getConfig().ACTIVATION_EMAIL_SUPPORT_LINK}>
-          {formatMessage(messages['account.activation.support.link'])}
-        </Alert.Link>
+          <Alert.Link href={getConfig().ACTIVATION_EMAIL_SUPPORT_LINK}>
+              {formatMessage(messages['account.activation.support.link'])}
+            </Alert.Link>
       );
 
       heading = formatMessage(messages[`account.${activationOrConfirmation}.error.message.title`]);
       activationMessage = (
-        <FormattedMessage
-          id="account.activation.error.message"
-          defaultMessage="Something went wrong, please {supportLink} to resolve this issue."
-          description="Account activation error message"
-          values={{ supportLink }}
-        />
+          <FormattedMessage
+              id="account.activation.error.message"
+              defaultMessage="Something went wrong, please {supportLink} to resolve this issue."
+              description="Account activation error message"
+              values={{ supportLink }}
+            />
       );
       break;
     }
@@ -56,15 +56,15 @@ const AccountActivationMessage = ({ messageType }) => {
   }
 
   return activationMessage ? (
-    <Alert
-      id="account-activation-message"
-      className="mb-5"
-      variant={variant}
-      icon={iconMapping[messageType]}
-    >
-      {heading && <Alert.Heading>{heading}</Alert.Heading>}
-      {activationMessage}
-    </Alert>
+      <Alert
+          id="account-activation-message"
+          className="mb-5"
+          variant={variant}
+          icon={iconMapping[messageType]}
+        >
+          {heading && <Alert.Heading>{heading}</Alert.Heading>}
+          {activationMessage}
+        </Alert>
   ) : null;
 };
 

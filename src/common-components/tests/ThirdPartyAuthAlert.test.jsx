@@ -16,9 +16,9 @@ describe('ThirdPartyAuthAlert', () => {
 
   it('should match login page third party auth alert message snapshot', () => {
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <ThirdPartyAuthAlert {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <ThirdPartyAuthAlert {...props} />
+            </IntlProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -30,9 +30,9 @@ describe('ThirdPartyAuthAlert', () => {
     };
 
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <ThirdPartyAuthAlert {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <ThirdPartyAuthAlert {...props} />
+            </IntlProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -45,9 +45,9 @@ describe('ThirdPartyAuthAlert', () => {
     };
 
     const tree = renderer.create(
-      <IntlProvider locale="en">
-        <ThirdPartyAuthAlert {...props} />
-      </IntlProvider>,
+          <IntlProvider locale="en">
+              <ThirdPartyAuthAlert {...props} />
+            </IntlProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

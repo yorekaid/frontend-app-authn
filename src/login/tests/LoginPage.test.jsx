@@ -39,17 +39,17 @@ describe('LoginPage', () => {
   const emptyFieldValidation = { emailOrUsername: 'Enter your username or email', password: 'Enter your password' };
 
   const queryWrapper = children => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        <MemoryRouter>
-          <RegisterProvider>
-            <LoginProvider>
-              {children}
-            </LoginProvider>
-          </RegisterProvider>
-        </MemoryRouter>
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              <MemoryRouter>
+                  <RegisterProvider>
+                      <LoginProvider>
+                          {children}
+                        </LoginProvider>
+                    </RegisterProvider>
+                </MemoryRouter>
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   const secondaryProviders = {

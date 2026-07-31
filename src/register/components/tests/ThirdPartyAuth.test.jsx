@@ -87,17 +87,17 @@ describe('ThirdPartyAuth', () => {
   };
 
   const renderWrapper = children => (
-    <IntlProvider locale="en">
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </IntlProvider>
+      <IntlProvider locale="en">
+          <QueryClientProvider client={queryClient}>
+              {children}
+            </QueryClientProvider>
+        </IntlProvider>
   );
 
   const routerWrapper = children => (
-    <Router>
-      {children}
-    </Router>
+      <Router>
+          {children}
+        </Router>
   );
 
   const mockThirdPartyAuthContext = {

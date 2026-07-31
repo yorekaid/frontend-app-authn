@@ -98,37 +98,37 @@ const CountryField = (props) => {
   };
 
   const getCountryList = () => countryList.map((country) => (
-    <FormAutosuggestOption key={country[COUNTRY_DISPLAY_KEY]} id={country[COUNTRY_CODE_KEY]}>
-      {country[COUNTRY_DISPLAY_KEY]}
-    </FormAutosuggestOption>
+      <FormAutosuggestOption key={country[COUNTRY_DISPLAY_KEY]} id={country[COUNTRY_CODE_KEY]}>
+          {country[COUNTRY_DISPLAY_KEY]}
+        </FormAutosuggestOption>
   ));
 
   return (
-    <div className="mb-4">
-      <FormAutosuggest
-        floatingLabel={formatMessage(messages['registration.country.label'])}
-        aria-label="form autosuggest"
-        name="country"
-        value={countryFieldValue || {}}
-        className={classNames({ 'form-field-error': props.errorMessage })}
-        onFocus={(e) => handleOnFocus(e)}
-        onBlur={(e) => handleOnBlur(e)}
-        onChange={(value) => handleOnChange(value)}
-      >
-        {getCountryList()}
-      </FormAutosuggest>
-      {props.errorMessage !== '' && (
-        <FormControlFeedback
-          key="error"
-          className="form-text-size"
-          hasIcon={false}
-          feedback-for="country"
-          type="invalid"
-        >
-          {props.errorMessage}
-        </FormControlFeedback>
-      )}
-    </div>
+      <div className="mb-4">
+          <FormAutosuggest
+              floatingLabel={formatMessage(messages['registration.country.label'])}
+              aria-label="form autosuggest"
+              name="country"
+              value={countryFieldValue || {}}
+              className={classNames({ 'form-field-error': props.errorMessage })}
+              onFocus={(e) => handleOnFocus(e)}
+              onBlur={(e) => handleOnBlur(e)}
+              onChange={(value) => handleOnChange(value)}
+            >
+              {getCountryList()}
+            </FormAutosuggest>
+          {props.errorMessage !== '' && (
+            <FormControlFeedback
+                  key="error"
+                  className="form-text-size"
+                  hasIcon={false}
+                  feedback-for="country"
+                  type="invalid"
+                >
+                    {props.errorMessage}
+                </FormControlFeedback>
+            )}
+        </div>
   );
 };
 

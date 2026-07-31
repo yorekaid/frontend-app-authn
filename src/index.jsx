@@ -17,9 +17,9 @@ subscribe(APP_READY, () => {
   const root = createRoot(document.getElementById('root'));
 
   root.render(
-    <StrictMode>
-      <MainApp />
-    </StrictMode>,
+      <StrictMode>
+          <MainApp />
+        </StrictMode>,
   );
 });
 
@@ -27,9 +27,9 @@ subscribe(APP_INIT_ERROR, (error) => {
   const root = createRoot(document.getElementById('root'));
 
   root.render(
-    <StrictMode>
-      <ErrorPage message={error.message} />
-    </StrictMode>,
+      <StrictMode>
+          <ErrorPage message={error.message} />
+        </StrictMode>,
   );
 });
 

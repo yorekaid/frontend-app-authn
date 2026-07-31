@@ -41,14 +41,14 @@ const ProductCard = ({
       let school;
       if (index === arr.length - 1) {
         school = (
-          <span key={owner.name}>{owner.name}</span>
+                  <span key={owner.name}>{owner.name}</span>
         );
       } else {
         school = (
-          <>
-            <span key={owner.name}>{owner.name}</span>
-            <br />
-          </>
+                  <>
+                      <span key={owner.name}>{owner.name}</span>
+                      <br />
+                    </>
         );
       }
 
@@ -71,32 +71,32 @@ const ProductCard = ({
   };
 
   return (
-    <BaseCard
-      customHeaderImage={headerImage}
-      schoolLogo={isMultipleOwner ? '' : schoolLogo}
-      title={product.title}
-      uuid={product.uuid}
-      key={product.uuid}
-      subtitle={isMultipleOwner ? multipleSchoolNames : schoolName}
-      productTypeCopy={productTypeCopy}
-      productType={productType}
-      variant={variant}
-      isLoading={isLoading}
-      redirectUrl={product.url || product?.activeCourseRun?.marketingUrl}
-      footer={(
-        <Footer
-          quickFacts={product.degree?.quickFacts}
-          externalUrl={product.additionalMetadata?.externalUrl
+      <BaseCard
+          customHeaderImage={headerImage}
+          schoolLogo={isMultipleOwner ? '' : schoolLogo}
+          title={product.title}
+          uuid={product.uuid}
+          key={product.uuid}
+          subtitle={isMultipleOwner ? multipleSchoolNames : schoolName}
+          productTypeCopy={productTypeCopy}
+          productType={productType}
+          variant={variant}
+          isLoading={isLoading}
+          redirectUrl={product.url || product?.activeCourseRun?.marketingUrl}
+          footer={(
+              <Footer
+                  quickFacts={product.degree?.quickFacts}
+                  externalUrl={product.additionalMetadata?.externalUrl
             || product.degree?.additionalMetadata?.externalUrl}
-          courseLength={product.courses?.length}
+                  courseLength={product.courses?.length}
+                  isSubscriptionView={!!product.subscriptionEligible}
+                  is2UDegreeProgram={product.is2UDegreeProgram}
+                  cardType={product.cardType}
+                />
+            )}
+          handleOnClick={handleCardClick}
           isSubscriptionView={!!product.subscriptionEligible}
-          is2UDegreeProgram={product.is2UDegreeProgram}
-          cardType={product.cardType}
         />
-      )}
-      handleOnClick={handleCardClick}
-      isSubscriptionView={!!product.subscriptionEligible}
-    />
   );
 };
 

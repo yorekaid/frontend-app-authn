@@ -62,13 +62,13 @@ describe('ForgotPasswordPage', () => {
     });
 
     return (
-      <QueryClientProvider client={queryClient}>
-        <IntlProvider locale="en">
-          <MemoryRouter>
-            {component}
-          </MemoryRouter>
-        </IntlProvider>
-      </QueryClientProvider>
+          <QueryClientProvider client={queryClient}>
+              <IntlProvider locale="en">
+                  <MemoryRouter>
+                      {component}
+                    </MemoryRouter>
+                </IntlProvider>
+            </QueryClientProvider>
     );
   };
 
@@ -351,13 +351,13 @@ describe('ForgotPasswordAlert', () => {
   const renderAlertWrapper = (props) => {
     const queryClient = new QueryClient();
     return render(
-      <QueryClientProvider client={queryClient}>
-        <IntlProvider locale="en">
-          <MemoryRouter>
-            <ForgotPasswordAlert {...props} />
-          </MemoryRouter>
-        </IntlProvider>
-      </QueryClientProvider>,
+          <QueryClientProvider client={queryClient}>
+              <IntlProvider locale="en">
+                  <MemoryRouter>
+                      <ForgotPasswordAlert {...props} />
+                    </MemoryRouter>
+                </IntlProvider>
+            </QueryClientProvider>,
     );
   };
 

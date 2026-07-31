@@ -58,10 +58,10 @@ const RegistrationFailureMessage = (props) => {
   }
 
   return (
-    <Alert id="validation-errors" className="mb-5" variant="danger" icon={Error}>
-      <Alert.Heading>{formatMessage(messages['registration.request.failure.header'])}</Alert.Heading>
-      <p>{errorMessage}</p>
-    </Alert>
+      <Alert id="validation-errors" className="mb-5" variant="danger" icon={Error}>
+          <Alert.Heading>{formatMessage(messages['registration.request.failure.header'])}</Alert.Heading>
+          <p>{errorMessage}</p>
+        </Alert>
   );
 };
 

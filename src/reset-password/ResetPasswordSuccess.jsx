@@ -9,12 +9,12 @@ const ResetPasswordSuccess = () => {
   const { formatMessage } = useIntl();
 
   return (
-    <Alert id="reset-password-success" variant="success" className="mb-5">
-      <Alert.Heading>
-        {formatMessage(messages['reset.password.success.heading'])}
-      </Alert.Heading>
-      <p>{formatMessage(messages['reset.password.success'])}</p>
-    </Alert>
+      <Alert id="reset-password-success" variant="success" className="mb-5">
+          <Alert.Heading>
+              {formatMessage(messages['reset.password.success.heading'])}
+            </Alert.Heading>
+          <p>{formatMessage(messages['reset.password.success'])}</p>
+        </Alert>
   );
 };
 

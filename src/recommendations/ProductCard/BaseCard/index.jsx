@@ -17,44 +17,44 @@ const BaseCard = ({
   redirectUrl,
 }) => (
   <div className="recommendation-card" key={`container-${uuid}`}>
-    <Hyperlink
-      target="_blank"
-      className="card-box d-inline"
-      showLaunchIcon={false}
-      destination={redirectUrl}
-      onClick={handleOnClick}
-    >
-      <Card
-        className={`base-card ${variant}`}
-        variant={variant}
-        isLoading={isLoading}
-      >
-        <Card.ImageCap
-          className="base-card-image-show optanon-category-C0001"
-          src={customHeaderImage}
-          srcAlt={`header image for ${subtitle}`}
-          logoSrc={schoolLogo}
-          logoAlt={`logo for ${subtitle}`}
-          imageLoadingType="lazy"
-        />
-        <Card.Header
-          className="mt-2"
-          title={truncateText(title, 50)}
-          subtitle={truncateText(subtitle, 30)}
-        />
-        <Card.Section className="d-flex">
-          <div className="product-badge">
-            <Badge>
-              {productTypeCopy}
-            </Badge>
-          </div>
-          <div className="footer-content mt-2">
-            {footer}
-          </div>
-        </Card.Section>
-      </Card>
-    </Hyperlink>
-  </div>
+      <Hyperlink
+          target="_blank"
+          className="card-box d-inline"
+          showLaunchIcon={false}
+          destination={redirectUrl}
+          onClick={handleOnClick}
+        >
+          <Card
+              className={`base-card ${variant}`}
+              variant={variant}
+              isLoading={isLoading}
+            >
+              <Card.ImageCap
+                  className="base-card-image-show optanon-category-C0001"
+                  src={customHeaderImage}
+                  srcAlt={`header image for ${subtitle}`}
+                  logoSrc={schoolLogo}
+                  logoAlt={`logo for ${subtitle}`}
+                  imageLoadingType="lazy"
+                />
+              <Card.Header
+                  className="mt-2"
+                  title={truncateText(title, 50)}
+                  subtitle={truncateText(subtitle, 30)}
+                />
+              <Card.Section className="d-flex">
+                  <div className="product-badge">
+                      <Badge>
+                          {productTypeCopy}
+                        </Badge>
+                    </div>
+                  <div className="footer-content mt-2">
+                      {footer}
+                    </div>
+                </Card.Section>
+            </Card>
+        </Hyperlink>
+    </div>
 );
 
 BaseCard.propTypes = {

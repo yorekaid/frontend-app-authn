@@ -51,15 +51,15 @@ describe('NameField', () => {
   let mockRegisterContext;
 
   const renderWrapper = (children) => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        <Router>
-          <RegisterProvider>
-            {children}
-          </RegisterProvider>
-        </Router>
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              <Router>
+                  <RegisterProvider>
+                      {children}
+                    </RegisterProvider>
+                </Router>
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   beforeEach(() => {

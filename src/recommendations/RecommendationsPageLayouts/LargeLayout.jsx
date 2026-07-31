@@ -16,29 +16,29 @@ const RecommendationsLargeLayout = (props) => {
 
   if (isLoading) {
     return (
-      <>
-        <Skeleton height={32} width={300} className="mb-5" />
-        <RecommendationsList
-          recommendations={loadingCoursesPlaceholders}
-          userId={userId}
-          isLoading
-        />
-      </>
+          <>
+              <Skeleton height={32} width={300} className="mb-5" />
+              <RecommendationsList
+                  recommendations={loadingCoursesPlaceholders}
+                  userId={userId}
+                  isLoading
+                />
+            </>
     );
   }
 
   if (personalizedRecommendations.length) {
     return (
-      <span id="recommendations-large-layout">
-        <h1 className="h2 text-sm-center mb-5 mb-sm-4.5 text-left recommendations-container__heading">
-          {formatMessage(messages['recommendation.page.heading'])}
-        </h1>
+          <span id="recommendations-large-layout">
+              <h1 className="h2 text-sm-center mb-5 mb-sm-4.5 text-left recommendations-container__heading">
+                  {formatMessage(messages['recommendation.page.heading'])}
+                </h1>
 
-        <RecommendationsList
-          recommendations={personalizedRecommendations}
-          userId={userId}
-        />
-      </span>
+              <RecommendationsList
+                  recommendations={personalizedRecommendations}
+                  userId={userId}
+                />
+            </span>
     );
   }
 

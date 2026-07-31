@@ -221,92 +221,92 @@ const LoginPage = ({
 
   if (institutionLogin) {
     return (
-      <InstitutionLogistration
-        secondaryProviders={secondaryProviders}
-        headingTitle={formatMessage(messages['institution.login.page.title'])}
-      />
+          <InstitutionLogistration
+              secondaryProviders={secondaryProviders}
+              headingTitle={formatMessage(messages['institution.login.page.title'])}
+            />
     );
   }
 
   return (
-    <>
-      <Helmet>
-        <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
-      </Helmet>
-      <RedirectLogistration
-        success={loginResult.success}
-        redirectUrl={loginResult.redirectUrl}
-        finishAuthUrl={finishAuthUrl}
-      />
-      <div className="mw-xs mt-3 mb-2">
-        <LoginFailureMessage
-          errorCode={errorCode.type}
-          errorCount={errorCode.count}
-          context={errorCode.context}
-        />
-        <ThirdPartyAuthAlert
-          currentProvider={currentProvider}
-          platformName={platformName}
-        />
-        <AccountActivationMessage
-          messageType={activationMsgType}
-        />
-        {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
-        <Form id="sign-in-form" name="sign-in-form">
-          <FormGroup
-            name="emailOrUsername"
-            value={formFields.emailOrUsername}
-            autoComplete="on"
-            handleChange={handleOnChange}
-            handleFocus={handleOnFocus}
-            errorMessage={errors.emailOrUsername}
-            floatingLabel={formatMessage(messages['login.user.identity.label'])}
-          />
-          <PasswordField
-            name="password"
-            value={formFields.password}
-            autoComplete="off"
-            showScreenReaderText={false}
-            showRequirements={false}
-            handleChange={handleOnChange}
-            handleFocus={handleOnFocus}
-            errorMessage={errors.password}
-            floatingLabel={formatMessage(messages['login.password.label'])}
-          />
-          <StatefulButton
-            name="sign-in"
-            id="sign-in"
-            type="submit"
-            variant="brand"
-            className="login-button-width"
-            state={(isLoggingIn ? PENDING_STATE : 'default')}
-            labels={{
-              default: formatMessage(messages['sign.in.button']),
-              pending: 'pending',
-            }}
-            onClick={handleSubmit}
-            onMouseDown={(event) => event.preventDefault()}
-          />
-          <Link
-            id="forgot-password"
-            name="forgot-password"
-            className="btn btn-link font-weight-500 text-body"
-            to={updatePathWithQueryParams(RESET_PAGE)}
-            onClick={trackForgotPasswordLinkClick}
-          >
-            {formatMessage(messages['forgot.password'])}
-          </Link>
-          <ThirdPartyAuth
-            currentProvider={currentProvider}
-            providers={providers}
-            secondaryProviders={secondaryProviders}
-            handleInstitutionLogin={handleInstitutionLogin}
-            thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
-            isLoginPage
-          />
-        </Form>
-      </div>
-    </>
+      <>
+          <Helmet>
+              <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
+            </Helmet>
+          <RedirectLogistration
+              success={loginResult.success}
+              redirectUrl={loginResult.redirectUrl}
+              finishAuthUrl={finishAuthUrl}
+            />
+          <div className="mw-xs mt-3 mb-2 auth-card">
+              <LoginFailureMessage
+                  errorCode={errorCode.type}
+                  errorCount={errorCode.count}
+                  context={errorCode.context}
+                />
+              <ThirdPartyAuthAlert
+                  currentProvider={currentProvider}
+                  platformName={platformName}
+                />
+              <AccountActivationMessage
+                  messageType={activationMsgType}
+                />
+              {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
+              <Form id="sign-in-form" name="sign-in-form">
+                  <FormGroup
+                      name="emailOrUsername"
+                      value={formFields.emailOrUsername}
+                      autoComplete="on"
+                      handleChange={handleOnChange}
+                      handleFocus={handleOnFocus}
+                      errorMessage={errors.emailOrUsername}
+                      floatingLabel={formatMessage(messages['login.user.identity.label'])}
+                    />
+                  <PasswordField
+                      name="password"
+                      value={formFields.password}
+                      autoComplete="off"
+                      showScreenReaderText={false}
+                      showRequirements={false}
+                      handleChange={handleOnChange}
+                      handleFocus={handleOnFocus}
+                      errorMessage={errors.password}
+                      floatingLabel={formatMessage(messages['login.password.label'])}
+                    />
+                  <StatefulButton
+                      name="sign-in"
+                      id="sign-in"
+                      type="submit"
+                      variant="brand"
+                      className="login-button-width"
+                      state={(isLoggingIn ? PENDING_STATE : 'default')}
+                      labels={{
+                          default: formatMessage(messages['sign.in.button']),
+                          pending: 'pending',
+                        }}
+                      onClick={handleSubmit}
+                      onMouseDown={(event) => event.preventDefault()}
+                    />
+                  <Link
+                      id="forgot-password"
+                      name="forgot-password"
+                      className="btn btn-link font-weight-500 text-body"
+                      to={updatePathWithQueryParams(RESET_PAGE)}
+                      onClick={trackForgotPasswordLinkClick}
+                    >
+                      {formatMessage(messages['forgot.password'])}
+                    </Link>
+                  <ThirdPartyAuth
+                      currentProvider={currentProvider}
+                      providers={providers}
+                      secondaryProviders={secondaryProviders}
+                      handleInstitutionLogin={handleInstitutionLogin}
+                      thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
+                      isLoginPage
+                    />
+                </Form>
+            </div>
+        </>
   );
 };
 

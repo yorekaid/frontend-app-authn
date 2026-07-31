@@ -80,14 +80,14 @@ const LogistrationPageInner = ({
   };
 
   const tabTitle = (
-    <div className="d-flex">
-      <Icon src={ChevronLeft} className="left-icon" />
-      <span className="ml-2">
-        {selectedPage === LOGIN_PAGE
-          ? formatMessage(messages['logistration.sign.in'])
-          : formatMessage(messages['logistration.register'])}
-      </span>
-    </div>
+      <div className="d-flex">
+          <Icon src={ChevronLeft} className="left-icon" />
+          <span className="ml-2">
+              {selectedPage === LOGIN_PAGE
+                  ? formatMessage(messages['logistration.sign.in'])
+                  : formatMessage(messages['logistration.register'])}
+            </span>
+        </div>
   );
 
   const isValidTpaHint = () => {
@@ -95,73 +95,75 @@ const LogistrationPageInner = ({
     return !!provider;
   };
 
+  const isFixedLoginLayout = selectedPage === LOGIN_PAGE && !institutionLogin && !isValidTpaHint();
+
   return (
-    <BaseContainer>
-      <div>
-        {disablePublicAccountCreation
-          ? (
-            <>
-              {institutionLogin && (
-                <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
-                  <Tab title={tabTitle} eventKey={LOGIN_PAGE} />
-                </Tabs>
-              )}
-              <div id="main-content" className="main-content">
-                {!institutionLogin && (
-                  <h3 className="mb-4.5">{formatMessage(messages['logistration.sign.in'])}</h3>
-                )}
-                <LoginComponentSlot
-                  institutionLogin={institutionLogin}
-                  handleInstitutionLogin={handleInstitutionLogin}
-                />
-              </div>
-            </>
-          )
-          : (
-            <div>
-              {institutionLogin
-                ? (
-                  <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
-                    <Tab title={tabTitle} eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
-                  </Tabs>
-                )
-                : (!isValidTpaHint() && !hideRegistrationLink && (
-                  <Tabs
-                    defaultActiveKey={selectedPage}
-                    id="controlled-tab"
-                    onSelect={(tabKey) => handleOnSelect(tabKey, selectedPage)}
-                  >
-                    <Tab title={formatMessage(messages['logistration.register'])} eventKey={REGISTER_PAGE} />
-                    <Tab title={formatMessage(messages['logistration.sign.in'])} eventKey={LOGIN_PAGE} />
-                  </Tabs>
-                ))}
-              {key && (
-                <Navigate to={updatePathWithQueryParams(key)} replace />
-              )}
-              <div id="main-content" className="main-content">
-                {!institutionLogin && !isValidTpaHint() && hideRegistrationLink && (
-                  <h3 className="mb-4.5">
-                    {formatMessage(messages[selectedPage === LOGIN_PAGE ? 'logistration.sign.in' : 'logistration.register'])}
-                  </h3>
-                )}
-                {selectedPage === LOGIN_PAGE
+      <BaseContainer fixedHeight={isFixedLoginLayout}>
+          <div>
+              {disablePublicAccountCreation
                   ? (
-                    <LoginComponentSlot
-                      institutionLogin={institutionLogin}
-                      handleInstitutionLogin={handleInstitutionLogin}
-                    />
+                      <>
+                          {institutionLogin && (
+                            <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
+                                  <Tab title={tabTitle} eventKey={LOGIN_PAGE} />
+                                </Tabs>
+                            )}
+                          <div id="main-content" className="main-content">
+                              {!institutionLogin && (
+                                <h3 className="mb-4.5">{formatMessage(messages['logistration.sign.in'])}</h3>
+                                )}
+                              <LoginComponentSlot
+                                  institutionLogin={institutionLogin}
+                                  handleInstitutionLogin={handleInstitutionLogin}
+                                />
+                            </div>
+                        </>
                   )
                   : (
-                    <RegistrationPage
-                      institutionLogin={institutionLogin}
-                      handleInstitutionLogin={handleInstitutionLogin}
-                    />
+                      <div>
+                          {institutionLogin
+                              ? (
+                                  <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
+                                      <Tab title={tabTitle} eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
+                                    </Tabs>
+                              )
+                              : (!isValidTpaHint() && !hideRegistrationLink && (
+                                <Tabs
+                                      defaultActiveKey={selectedPage}
+                                      id="controlled-tab"
+                                      onSelect={(tabKey) => handleOnSelect(tabKey, selectedPage)}
+                                    >
+                                      <Tab title={formatMessage(messages['logistration.register'])} eventKey={REGISTER_PAGE} />
+                                      <Tab title={formatMessage(messages['logistration.sign.in'])} eventKey={LOGIN_PAGE} />
+                                    </Tabs>
+                              ))}
+                          {key && (
+                            <Navigate to={updatePathWithQueryParams(key)} replace />
+                            )}
+                          <div id="main-content" className="main-content">
+                              {!institutionLogin && !isValidTpaHint() && hideRegistrationLink && (
+                                <h3 className="mb-4.5">
+                                        {formatMessage(messages[selectedPage === LOGIN_PAGE ? 'logistration.sign.in' : 'logistration.register'])}
+                                    </h3>
+                                )}
+                              {selectedPage === LOGIN_PAGE
+                                  ? (
+                                      <LoginComponentSlot
+                                          institutionLogin={institutionLogin}
+                                          handleInstitutionLogin={handleInstitutionLogin}
+                                        />
+                                  )
+                                  : (
+                                      <RegistrationPage
+                                          institutionLogin={institutionLogin}
+                                          handleInstitutionLogin={handleInstitutionLogin}
+                                        />
+                                  )}
+                            </div>
+                        </div>
                   )}
-              </div>
             </div>
-          )}
-      </div>
-    </BaseContainer>
+        </BaseContainer>
   );
 };
 
@@ -174,12 +176,12 @@ LogistrationPageInner.propTypes = {
  */
 const LogistrationPage = (props) => (
   <ThirdPartyAuthProvider>
-    <RegisterProvider>
-      <LoginProvider>
-        <LogistrationPageInner {...props} />
-      </LoginProvider>
-    </RegisterProvider>
-  </ThirdPartyAuthProvider>
+      <RegisterProvider>
+          <LoginProvider>
+              <LogistrationPageInner {...props} />
+            </LoginProvider>
+        </RegisterProvider>
+    </ThirdPartyAuthProvider>
 );
 
 export default LogistrationPage;

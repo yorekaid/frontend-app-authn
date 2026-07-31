@@ -18,32 +18,32 @@ const ProgressiveProfilingPageModal = (props) => {
   };
 
   return (
-    <ModalDialog
-      title={formatMessage(messages['modal.title'])}
-      isOpen={isOpen}
-      onClose={() => {}}
-      size="sm"
-      variant="default"
-      hasCloseButton={false}
-    >
-      <ModalDialog.Header>
-        <ModalDialog.Title>
-          {formatMessage(messages['modal.title'])}
-        </ModalDialog.Title>
-      </ModalDialog.Header>
+      <ModalDialog
+          title={formatMessage(messages['modal.title'])}
+          isOpen={isOpen}
+          onClose={() => {}}
+          size="sm"
+          variant="default"
+          hasCloseButton={false}
+        >
+          <ModalDialog.Header>
+              <ModalDialog.Title>
+                  {formatMessage(messages['modal.title'])}
+                </ModalDialog.Title>
+            </ModalDialog.Header>
 
-      <ModalDialog.Body>
-        {formatMessage(messages['modal.description'])}
-      </ModalDialog.Body>
+          <ModalDialog.Body>
+              {formatMessage(messages['modal.description'])}
+            </ModalDialog.Body>
 
-      <ModalDialog.Footer>
-        <ActionRow>
-          <Button onClick={handleSubmit} variant="primary">
-            {formatMessage(messages['continue.to.platform'], { platformName })}
-          </Button>
-        </ActionRow>
-      </ModalDialog.Footer>
-    </ModalDialog>
+          <ModalDialog.Footer>
+              <ActionRow>
+                  <Button onClick={handleSubmit} variant="primary">
+                      {formatMessage(messages['continue.to.platform'], { platformName })}
+                    </Button>
+                </ActionRow>
+            </ModalDialog.Footer>
+        </ModalDialog>
   );
 };
 

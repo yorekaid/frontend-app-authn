@@ -26,20 +26,20 @@ const ForgotPasswordAlert = (props) => {
       heading = formatMessage(messages['confirmation.message.title']);
       message = (
         <FormattedMessage
-          id="forgot.password.confirmation.message"
-          defaultMessage="We sent an email to {email} with instructions to reset your password.
+            id="forgot.password.confirmation.message"
+            defaultMessage="We sent an email to {email} with instructions to reset your password.
           If you do not receive a password reset message after 1 minute, verify that you entered
           the correct email address, or check your spam folder. If you need further assistance, {supportLink}."
-          description="Forgot password confirmation message"
-          values={{
-            email: <span className="data-hj-suppress">{email}</span>,
-            supportLink: (
-              <Alert.Link href={getConfig().PASSWORD_RESET_SUPPORT_LINK} target="_blank">
-                {formatMessage(messages['confirmation.support.link'])}
-              </Alert.Link>
-            ),
-          }}
-        />
+            description="Forgot password confirmation message"
+            values={{
+                email: <span className="data-hj-suppress">{email}</span>,
+                supportLink: (
+                    <Alert.Link href={getConfig().PASSWORD_RESET_SUPPORT_LINK} target="_blank">
+                        {formatMessage(messages['confirmation.support.link'])}
+                      </Alert.Link>
+                ),
+              }}
+          />
       );
       break;
     case INTERNAL_SERVER_ERROR:
@@ -70,15 +70,15 @@ const ForgotPasswordAlert = (props) => {
 
   if (message) {
     return (
-      <Alert
-        id="validation-errors"
-        className="mb-4"
-        variant={`${status === 'complete' ? 'success' : 'danger'}`}
-        icon={status === 'complete' ? CheckCircle : Error}
-      >
-        <Alert.Heading>{heading}</Alert.Heading>
-        <p>{message}</p>
-      </Alert>
+          <Alert
+              id="validation-errors"
+              className="mb-4"
+              variant={`${status === 'complete' ? 'success' : 'danger'}`}
+              icon={status === 'complete' ? CheckCircle : Error}
+            >
+              <Alert.Heading>{heading}</Alert.Heading>
+              <p>{message}</p>
+            </Alert>
     );
   }
   return null;

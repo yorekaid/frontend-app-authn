@@ -68,13 +68,13 @@ describe('RecommendationsPageTests', () => {
     queryClient = createTestQueryClient();
 
     return render(
-      <QueryClientProvider client={queryClient}>
-        <IntlProvider locale="en" messages={{}}>
-          <MemoryRouter>
-            {children}
-          </MemoryRouter>
-        </IntlProvider>
-      </QueryClientProvider>,
+          <QueryClientProvider client={queryClient}>
+              <IntlProvider locale="en" messages={{}}>
+                  <MemoryRouter>
+                      {children}
+                    </MemoryRouter>
+                </IntlProvider>
+            </QueryClientProvider>,
     );
   };
 

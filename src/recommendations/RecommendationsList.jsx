@@ -6,19 +6,19 @@ const RecommendationsList = (props) => {
   const { recommendations, userId, isLoading } = props;
 
   return (
-    <div className="d-flex flex-wrap mb-3 recommendations-container__card-list">
-      {
-        recommendations.map((recommendation, idx) => (
-          <ProductCard
-            key={recommendation.uuid}
-            product={recommendation}
-            position={idx}
-            userId={userId}
-            isLoading={isLoading}
-          />
-        ))
-      }
-    </div>
+      <div className="d-flex flex-wrap mb-3 recommendations-container__card-list">
+          {
+                recommendations.map((recommendation, idx) => (
+                  <ProductCard
+                      key={recommendation.uuid}
+                      product={recommendation}
+                      position={idx}
+                      userId={userId}
+                      isLoading={isLoading}
+                    />
+                ))
+            }
+        </div>
   );
 };
 

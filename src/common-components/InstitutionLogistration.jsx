@@ -13,15 +13,15 @@ export const RenderInstitutionButton = props => {
   const { onSubmitHandler, buttonTitle } = props;
 
   return (
-    <Button
-      className="btn-sm text-body p-0 mb-4 border-0"
-      variant="link"
-      data-event-name="institution_login"
-      onClick={onSubmitHandler}
-    >
-      <Icon src={Institution} className="institute-icon" />
-      {buttonTitle}
-    </Button>
+      <Button
+          className="btn-sm text-body p-0 mb-4 border-0"
+          variant="link"
+          data-event-name="institution_login"
+          onClick={onSubmitHandler}
+        >
+          <Icon src={Institution} className="institute-icon" />
+          {buttonTitle}
+        </Button>
   );
 };
 
@@ -37,36 +37,36 @@ const InstitutionLogistration = props => {
   } = props;
 
   return (
-    <>
-      <div className="d-flex justify-content-left mb-4 mt-2">
-        <div className="flex-column">
-          <h4 className="mb-2 font-weight-bold institutions__heading">
-            {headingTitle}
-          </h4>
-          <p className="mb-2">
-            {formatMessage(messages['institution.login.page.sub.heading'])}
-          </p>
-        </div>
-      </div>
-      <div className="mb-5">
-        <table className="pgn__data-table table-striped table-borderless">
-          <tbody>
-            {secondaryProviders.map(provider => (
-              <tr key={provider} className="pgn__data-table-row">
-                <td>
-                  <Hyperlink
-                    className="btn nav-item p-0 mb-1 institutions--provider-link"
-                    destination={lmsBaseUrl + provider.loginUrl}
-                  >
-                    {provider.name}
-                  </Hyperlink>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+      <>
+          <div className="d-flex justify-content-left mb-4 mt-2">
+              <div className="flex-column">
+                  <h4 className="mb-2 font-weight-bold institutions__heading">
+                      {headingTitle}
+                    </h4>
+                  <p className="mb-2">
+                      {formatMessage(messages['institution.login.page.sub.heading'])}
+                    </p>
+                </div>
+            </div>
+          <div className="mb-5">
+              <table className="pgn__data-table table-striped table-borderless">
+                  <tbody>
+                      {secondaryProviders.map(provider => (
+                          <tr key={provider} className="pgn__data-table-row">
+                              <td>
+                                  <Hyperlink
+                                      className="btn nav-item p-0 mb-1 institutions--provider-link"
+                                      destination={lmsBaseUrl + provider.loginUrl}
+                                    >
+                                      {provider.name}
+                                    </Hyperlink>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </>
   );
 };
 

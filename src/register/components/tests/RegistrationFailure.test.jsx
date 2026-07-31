@@ -82,17 +82,17 @@ describe('RegistrationFailure', () => {
   };
 
   const renderWrapper = children => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        {children}
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              {children}
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   const routerWrapper = children => (
-    <Router>
-      {children}
-    </Router>
+      <Router>
+          {children}
+        </Router>
   );
 
   const mockRegisterContext = {

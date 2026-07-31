@@ -102,13 +102,13 @@ describe('RegistrationPage', () => {
   };
 
   const renderWrapper = (children) => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        <Router>
-          {children}
-        </Router>
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              <Router>
+                  {children}
+                </Router>
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   beforeEach(() => {

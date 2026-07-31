@@ -26,7 +26,7 @@ const ChangePasswordPrompt = ({ variant, redirectUrl }) => {
       }
     },
   };
-  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const [isOpen, open, close] = useToggle(true, handlers);
   const { formatMessage } = useIntl();
   const navigate = useNavigate();
@@ -38,44 +38,44 @@ const ChangePasswordPrompt = ({ variant, redirectUrl }) => {
   }, [redirectToResetPasswordPage, navigate]);
 
   return (
-    <ModalDialog
-      title="Password security"
-      isOpen={isOpen}
-      onClose={close}
-      size={isMobileView ? 'sm' : 'md'}
-      hasCloseButton={false}
-    >
-      <ModalDialog.Header>
-        <ModalDialog.Title>
-          {formatMessage(messages[`password.security.${variant}.title`])}
-        </ModalDialog.Title>
-      </ModalDialog.Header>
-      <ModalDialog.Body>
-        {formatMessage(messages[`password.security.${variant}.body`])}
-      </ModalDialog.Body>
-      <ModalDialog.Footer>
-        <ActionRow className={classNames(
-          { 'd-flex flex-column': isMobileView },
-        )}
+      <ModalDialog
+          title="Password security"
+          isOpen={isOpen}
+          onClose={close}
+          size={isMobileView ? 'sm' : 'md'}
+          hasCloseButton={false}
         >
-          {variant === 'nudge' ? (
-            <ModalDialog.CloseButton id="password-security-close" variant="tertiary">
-              {formatMessage(messages['password.security.close.button'])}
-            </ModalDialog.CloseButton>
-          ) : null}
-          <Link
-            id="password-security-reset-password"
-            className={classNames(
-              'btn btn-primary',
-              { 'w-100': isMobileView },
-            )}
-            to={updatePathWithQueryParams(RESET_PAGE)}
-          >
-            {formatMessage(messages['password.security.redirect.to.reset.password.button'])}
-          </Link>
-        </ActionRow>
-      </ModalDialog.Footer>
-    </ModalDialog>
+          <ModalDialog.Header>
+              <ModalDialog.Title>
+                  {formatMessage(messages[`password.security.${variant}.title`])}
+                </ModalDialog.Title>
+            </ModalDialog.Header>
+          <ModalDialog.Body>
+              {formatMessage(messages[`password.security.${variant}.body`])}
+            </ModalDialog.Body>
+          <ModalDialog.Footer>
+              <ActionRow className={classNames(
+                  { 'd-flex flex-column': isMobileView },
+                )}
+                >
+                  {variant === 'nudge' ? (
+                      <ModalDialog.CloseButton id="password-security-close" variant="tertiary">
+                          {formatMessage(messages['password.security.close.button'])}
+                        </ModalDialog.CloseButton>
+                    ) : null}
+                  <Link
+                      id="password-security-reset-password"
+                      className={classNames(
+                          'btn btn-primary',
+                          { 'w-100': isMobileView },
+                        )}
+                      to={updatePathWithQueryParams(RESET_PAGE)}
+                    >
+                      {formatMessage(messages['password.security.redirect.to.reset.password.button'])}
+                    </Link>
+                </ActionRow>
+            </ModalDialog.Footer>
+        </ModalDialog>
   );
 };
 

@@ -71,65 +71,65 @@ const RecommendationsPageInner = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>{formatMessage(messages['recommendation.page.title'],
-          { siteName: getConfig().SITE_NAME })}
-        </title>
-      </Helmet>
-      <div className="d-flex flex-column bg-light-200 min-vh-100">
-        <div className="mb-2">
-          <div className="col-md-12 small-screen-top-stripe medium-screen-top-stripe extra-large-screen-top-stripe" />
-          <Hyperlink destination={getConfig().MARKETING_SITE_BASE_URL}>
-            <Image className="logo" alt={getConfig().SITE_NAME} src={getConfig().LOGO_URL} />
-          </Hyperlink>
-        </div>
-        <div className="d-flex flex-column align-items-center justify-content-center flex-grow-1">
-          <Container
-            id="course-recommendations"
-            size="lg"
-            className="pr-4 pl-4 mt-4.5 mb-4.5 mb-md-5"
-          >
-            {isExtraSmall ? (
-              <RecommendationsSmallLayout
-                userId={userId}
-                isLoading={isLoading}
-                personalizedRecommendations={algoliaRecommendations}
-              />
-            ) : (
-              <RecommendationsLargeLayout
-                userId={userId}
-                isLoading={isLoading}
-                personalizedRecommendations={algoliaRecommendations}
-              />
-            )}
-            <div className="mt-3 mt-sm-4.5 text-center">
-              {isLoading && (
-                <Skeleton height={40} width={140} />
-              )}
-              {!isLoading && algoliaRecommendations.length && (
-                <StatefulButton
-                  className="font-weight-500"
-                  type="submit"
-                  variant="outline-brand"
-                  labels={{
-                    default: formatMessage(messages['recommendation.skip.button']),
-                  }}
-                  onClick={handleSkip}
-                />
-              )}
+      <>
+          <Helmet>
+              <title>{formatMessage(messages['recommendation.page.title'],
+                  { siteName: getConfig().SITE_NAME })}
+                </title>
+            </Helmet>
+          <div className="d-flex flex-column bg-light-200 min-vh-100">
+              <div className="mb-2">
+                  <div className="col-md-12 small-screen-top-stripe medium-screen-top-stripe extra-large-screen-top-stripe" />
+                  <Hyperlink destination={getConfig().MARKETING_SITE_BASE_URL}>
+                      <Image className="logo" alt={getConfig().SITE_NAME} src={getConfig().LOGO_URL} />
+                    </Hyperlink>
+                </div>
+              <div className="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+                  <Container
+                      id="course-recommendations"
+                      size="lg"
+                      className="pr-4 pl-4 mt-4.5 mb-4.5 mb-md-5"
+                    >
+                      {isExtraSmall ? (
+                          <RecommendationsSmallLayout
+                              userId={userId}
+                              isLoading={isLoading}
+                              personalizedRecommendations={algoliaRecommendations}
+                            />
+                        ) : (
+                        <RecommendationsLargeLayout
+                              userId={userId}
+                              isLoading={isLoading}
+                              personalizedRecommendations={algoliaRecommendations}
+                            />
+                        )}
+                      <div className="mt-3 mt-sm-4.5 text-center">
+                          {isLoading && (
+                            <Skeleton height={40} width={140} />
+                            )}
+                          {!isLoading && algoliaRecommendations.length && (
+                            <StatefulButton
+                                  className="font-weight-500"
+                                  type="submit"
+                                  variant="outline-brand"
+                                  labels={{
+                                      default: formatMessage(messages['recommendation.skip.button']),
+                                    }}
+                                  onClick={handleSkip}
+                                />
+                            )}
+                        </div>
+                    </Container>
+                </div>
             </div>
-          </Container>
-        </div>
-      </div>
-    </>
+        </>
   );
 };
 
 const RecommendationsPage = (props) => (
   <RegisterProvider>
-    <RecommendationsPageInner {...props} />
-  </RegisterProvider>
+      <RecommendationsPageInner {...props} />
+    </RegisterProvider>
 );
 
 export default RecommendationsPage;

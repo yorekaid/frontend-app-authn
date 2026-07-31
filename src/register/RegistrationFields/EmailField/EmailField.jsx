@@ -92,46 +92,46 @@ const EmailField = (props) => {
   const renderEmailFeedback = () => {
     if (emailSuggestion.type === 'error') {
       return (
-        <Alert variant="danger" className="email-suggestion-alert-error mt-1" icon={Error}>
-          <span className="email-suggestion__text">
-            {formatMessage(messages['did.you.mean.alert.text'])}{' '}
-            <Alert.Link
-              href="#"
-              name="email"
-              onClick={handleSuggestionClick}
-            >
-              {emailSuggestion.suggestion}
-            </Alert.Link>?
-            <Icon src={Close} className="email-suggestion__close" onClick={handleSuggestionClosed} tabIndex="0" />
-          </span>
-        </Alert>
+              <Alert variant="danger" className="email-suggestion-alert-error mt-1" icon={Error}>
+                  <span className="email-suggestion__text">
+                      {formatMessage(messages['did.you.mean.alert.text'])}{' '}
+                      <Alert.Link
+                          href="#"
+                          name="email"
+                          onClick={handleSuggestionClick}
+                        >
+                          {emailSuggestion.suggestion}
+                        </Alert.Link>?
+                      <Icon src={Close} className="email-suggestion__close" onClick={handleSuggestionClosed} tabIndex="0" />
+                    </span>
+                </Alert>
       );
     }
     return (
-      <span id="email-warning" className="small">
-        {formatMessage(messages['did.you.mean.alert.text'])}:{' '}
-        <Alert.Link
-          href="#"
-          name="email"
-          className="email-suggestion-alert-warning"
-          onClick={handleSuggestionClick}
-        >
-          {emailSuggestion.suggestion}
-        </Alert.Link>?
-      </span>
+          <span id="email-warning" className="small">
+              {formatMessage(messages['did.you.mean.alert.text'])}:{' '}
+              <Alert.Link
+                  href="#"
+                  name="email"
+                  className="email-suggestion-alert-warning"
+                  onClick={handleSuggestionClick}
+                >
+                  {emailSuggestion.suggestion}
+                </Alert.Link>?
+            </span>
     );
   };
 
   return (
-    <FormGroup
-      borderClass={emailSuggestion.type === 'warning' ? 'yellow-border' : ''}
-      maxLength={254} // Limit per RFCs is 254
-      {...props}
-      handleBlur={handleOnBlur}
-      handleFocus={handleOnFocus}
-    >
-      {emailSuggestion.suggestion ? renderEmailFeedback() : null}
-    </FormGroup>
+      <FormGroup
+          borderClass={emailSuggestion.type === 'warning' ? 'yellow-border' : ''}
+          maxLength={254} // Limit per RFCs is 254
+          {...props}
+          handleBlur={handleOnBlur}
+          handleFocus={handleOnFocus}
+        >
+          {emailSuggestion.suggestion ? renderEmailFeedback() : null}
+        </FormGroup>
   );
 };
 

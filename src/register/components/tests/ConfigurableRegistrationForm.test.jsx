@@ -80,17 +80,17 @@ describe('ConfigurableRegistrationForm', () => {
   };
 
   const renderWrapper = children => (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale="en">
-        {children}
-      </IntlProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+          <IntlProvider locale="en">
+              {children}
+            </IntlProvider>
+        </QueryClientProvider>
   );
 
   const routerWrapper = children => (
-    <Router>
-      {children}
-    </Router>
+      <Router>
+          {children}
+        </Router>
   );
 
   const mockRegisterContext = {
@@ -214,7 +214,7 @@ describe('ConfigurableRegistrationForm', () => {
       };
 
       render(routerWrapper(renderWrapper(
-        <ConfigurableRegistrationForm {...props} />,
+              <ConfigurableRegistrationForm {...props} />,
       )));
 
       expect(document.querySelector('#profession')).toBeTruthy();
@@ -244,7 +244,7 @@ describe('ConfigurableRegistrationForm', () => {
       };
 
       render(routerWrapper(renderWrapper(
-        <ConfigurableRegistrationForm {...props} />,
+              <ConfigurableRegistrationForm {...props} />,
       )));
 
       expect(props.setFormFields).toHaveBeenCalledTimes(2);

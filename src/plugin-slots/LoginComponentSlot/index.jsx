@@ -8,17 +8,17 @@ const LoginComponentSlot = ({
   handleInstitutionLogin,
 }) => (
   <PluginSlot
-    id="org.openedx.frontend.authn.login_component.v1"
-    pluginProps={{
-      isInstitutionLogin: institutionLogin,
-      setInstitutionLogin: handleInstitutionLogin,
-    }}
-  >
-    <LoginPage
-      institutionLogin={institutionLogin}
-      handleInstitutionLogin={handleInstitutionLogin}
-    />
-  </PluginSlot>
+      id="org.openedx.frontend.authn.login_component.v1"
+      pluginProps={{
+          isInstitutionLogin: institutionLogin,
+          setInstitutionLogin: handleInstitutionLogin,
+        }}
+    >
+      <LoginPage
+          institutionLogin={institutionLogin}
+          handleInstitutionLogin={handleInstitutionLogin}
+        />
+    </PluginSlot>
 );
 
 LoginComponentSlot.propTypes = {
