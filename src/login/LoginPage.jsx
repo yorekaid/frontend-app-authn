@@ -313,20 +313,16 @@ const LoginPage = ({
             </Link>
           </div> */}
 
-          {isAdminLogin && ((providers && providers.length > 0) || (secondaryProviders && secondaryProviders.length > 0)) && (
-            <div className="auth-card__divider">
-              <span>Atau masuk menggunakan</span>
-            </div>
+          {!isAdminLogin && (
+            <ThirdPartyAuth
+              currentProvider={currentProvider}
+              providers={providers}
+              secondaryProviders={secondaryProviders}
+              handleInstitutionLogin={handleInstitutionLogin}
+              thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
+              isLoginPage
+            />
           )}
-
-          <ThirdPartyAuth
-            currentProvider={currentProvider}
-            providers={providers}
-            secondaryProviders={secondaryProviders}
-            handleInstitutionLogin={handleInstitutionLogin}
-            thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
-            isLoginPage
-          />
 
           {/* <div className="auth-card__remember-me mt-4">
             <Form.Checkbox id="remember-me" name="remember-me" defaultChecked>
