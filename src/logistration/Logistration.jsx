@@ -56,10 +56,10 @@ const LogistrationPageInner = ({
   }, []);
 
   useEffect(() => {
-    if (disablePublicAccountCreation) {
+    if (disablePublicAccountCreation && selectedPage === REGISTER_PAGE) {
       navigate(updatePathWithQueryParams(LOGIN_PAGE));
     }
-  }, [navigate, disablePublicAccountCreation]);
+  }, [navigate, disablePublicAccountCreation, selectedPage]);
 
   const handleInstitutionLogin = (e) => {
     sendTrackEvent('edx.bi.institution_login_form.toggled', { category: 'user-engagement' });
