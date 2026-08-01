@@ -39,44 +39,44 @@ const queryClient = new QueryClient({
 
 const MainApp = () => (
   <QueryClientProvider client={queryClient}>
-      <AppProvider>
-          <Helmet>
-              <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
-            </Helmet>
-          {getConfig().ZENDESK_KEY && <Zendesk />}
-          <Routes>
-              <Route path="/" element={<Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />} />
-              <Route
-                  path={REGISTER_EMBEDDED_PAGE}
-                  element={<EmbeddedRegistrationRoute><RegistrationPage /></EmbeddedRegistrationRoute>}
-                />
-              <Route
-                  path={LOGIN_PAGE}
-                  element={
-                      <UnAuthOnlyRoute><Logistration selectedPage={LOGIN_PAGE} /></UnAuthOnlyRoute>
-                    }
-                />
-              <Route
-                  path="/login/admin"
-                  element={
-                      <UnAuthOnlyRoute><Logistration selectedPage={LOGIN_PAGE} isAdminLogin={true} /></UnAuthOnlyRoute>
-                    }
-                />
-              <Route
-                  path={REGISTER_PAGE}
-                  element={
-                      <Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />
-                    }
-                />
-              <Route path={RESET_PAGE} element={<UnAuthOnlyRoute><ForgotPasswordPage /></UnAuthOnlyRoute>} />
-              <Route path={PASSWORD_RESET_CONFIRM} element={<ResetPasswordPage />} />
-              <Route path={AUTHN_PROGRESSIVE_PROFILING} element={<ProgressiveProfiling />} />
-              <Route path={RECOMMENDATIONS} element={<RecommendationsPage />} />
-              <Route path={PAGE_NOT_FOUND} element={<NotFoundPage />} />
-              <Route path="*" element={<Navigate replace to={PAGE_NOT_FOUND} />} />
-            </Routes>
-        </AppProvider>
-    </QueryClientProvider>
+    <AppProvider>
+      <Helmet>
+        <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
+      </Helmet>
+      {getConfig().ZENDESK_KEY && <Zendesk />}
+      <Routes>
+        <Route path="/" element={<Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />} />
+        <Route
+          path={REGISTER_EMBEDDED_PAGE}
+          element={<EmbeddedRegistrationRoute><RegistrationPage /></EmbeddedRegistrationRoute>}
+        />
+        <Route
+          path={LOGIN_PAGE}
+          element={
+            <UnAuthOnlyRoute><Logistration selectedPage={LOGIN_PAGE} /></UnAuthOnlyRoute>
+          }
+        />
+        <Route
+          path="/login/portal"
+          element={
+            <UnAuthOnlyRoute><Logistration selectedPage={LOGIN_PAGE} isAdminLogin={true} /></UnAuthOnlyRoute>
+          }
+        />
+        <Route
+          path={REGISTER_PAGE}
+          element={
+            <Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />
+          }
+        />
+        <Route path={RESET_PAGE} element={<UnAuthOnlyRoute><ForgotPasswordPage /></UnAuthOnlyRoute>} />
+        <Route path={PASSWORD_RESET_CONFIRM} element={<ResetPasswordPage />} />
+        <Route path={AUTHN_PROGRESSIVE_PROFILING} element={<ProgressiveProfiling />} />
+        <Route path={RECOMMENDATIONS} element={<RecommendationsPage />} />
+        <Route path={PAGE_NOT_FOUND} element={<NotFoundPage />} />
+        <Route path="*" element={<Navigate replace to={PAGE_NOT_FOUND} />} />
+      </Routes>
+    </AppProvider>
+  </QueryClientProvider>
 );
 
 export default MainApp;

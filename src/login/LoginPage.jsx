@@ -290,7 +290,7 @@ const LoginPage = ({
                 id="sign-in"
                 type="submit"
                 variant="primary"
-                className="login-button-width mt-1"
+                className="login-button-width mt-1 small"
                 state={(isLoggingIn ? PENDING_STATE : 'default')}
                 labels={{
                   default: formatMessage(messages['sign.in.button']),
@@ -330,7 +330,7 @@ const LoginPage = ({
             </Form.Checkbox>
           </div> */}
 
-          <div className="auth-card__footer mt-4 text-center">
+          <div className="auth-card__footer mt-3 text-center">
             By continuing, you agree to our <a href="#" onClick={(e) => { e.preventDefault(); setShowTermsModal(true); }}>Terms of Use</a> and <a href="#" onClick={(e) => { e.preventDefault(); setShowPrivacyModal(true); }}>Privacy Policy</a>.
           </div>
         </Form>

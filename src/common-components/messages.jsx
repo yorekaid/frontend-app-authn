@@ -85,17 +85,17 @@ const messages = defineMessages({
   'login.third.party.auth.account.not.linked': {
     id: 'login.third.party.auth.account.not.linked',
     defaultMessage: 'You have successfully signed into {currentProvider}, but your {currentProvider} '
-                    + 'account does not have a linked {platformName} account. To link your accounts, '
-                    + 'sign in now using your {platformName} password.',
+      + 'account does not have a linked {platformName} account. To link your accounts, '
+      + 'sign in now using your {platformName} password.',
     description: 'Message that appears on login page if user has successfully authenticated with social '
-                  + 'auth but no associated platform account exists',
+      + 'auth but no associated platform account exists',
   },
   'register.third.party.auth.account.not.linked': {
     id: 'register.third.party.auth.account.not.linked',
     defaultMessage: 'You\'ve successfully signed into {currentProvider}! We just need a little more information '
-                    + 'before you start learning with {platformName}.',
+      + 'before you start learning with {platformName}.',
     description: 'Message that appears on register page if user has successfully authenticated with TPA '
-                  + 'but no associated platform account exists',
+      + 'but no associated platform account exists',
   },
   'registration.using.tpa.form.heading': {
     id: 'registration.using.tpa.form.heading',
@@ -124,7 +124,7 @@ const messages = defineMessages({
   },
   'login.other.options.heading': {
     id: 'login.other.options.heading',
-    defaultMessage: 'Or sign in with:',
+    defaultMessage: 'Sign in with:',
     description: 'Text that appears above other sign in options like social auth buttons',
   },
   'enterprise.login.btn.text': {
