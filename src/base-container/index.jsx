@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
 import { DefaultLargeLayout, DefaultMediumLayout, DefaultSmallLayout } from './components/default-layout';
+import SplitIllustrationLayout from './components/split-illustration-layout';
 import {
   ImageExtraSmallLayout, ImageLargeLayout, ImageMediumLayout, ImageSmallLayout,
 } from './components/image-layout';
@@ -48,7 +49,7 @@ const BaseContainer = ({
                   {showWelcomeBanner ? <AuthMediumLayout fullName={fullName} /> : <DefaultMediumLayout />}
                 </MediaQuery>
               <MediaQuery minWidth={breakpoints.extraLarge.minWidth}>
-                  {showWelcomeBanner ? <AuthLargeLayout fullName={fullName} /> : <DefaultLargeLayout />}
+                  {showWelcomeBanner ? <AuthLargeLayout fullName={fullName} /> : <SplitIllustrationLayout />}
                 </MediaQuery>
               <div className={classNames('content', { 'align-items-center mt-0': showWelcomeBanner })}>
                   {children}

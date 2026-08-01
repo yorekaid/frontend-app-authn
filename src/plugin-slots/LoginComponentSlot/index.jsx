@@ -6,6 +6,7 @@ import LoginPage from '../../login/LoginPage';
 const LoginComponentSlot = ({
   institutionLogin,
   handleInstitutionLogin,
+  isAdminLogin,
 }) => (
   <PluginSlot
       id="org.openedx.frontend.authn.login_component.v1"
@@ -17,6 +18,7 @@ const LoginComponentSlot = ({
       <LoginPage
           institutionLogin={institutionLogin}
           handleInstitutionLogin={handleInstitutionLogin}
+          isAdminLogin={isAdminLogin}
         />
     </PluginSlot>
 );
@@ -24,6 +26,11 @@ const LoginComponentSlot = ({
 LoginComponentSlot.propTypes = {
   institutionLogin: PropTypes.bool,
   handleInstitutionLogin: PropTypes.func,
+  isAdminLogin: PropTypes.bool,
+};
+
+LoginComponentSlot.defaultProps = {
+  isAdminLogin: false,
 };
 
 export default LoginComponentSlot;

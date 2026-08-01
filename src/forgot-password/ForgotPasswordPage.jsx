@@ -10,6 +10,7 @@ import {
   StatefulButton,
   Tab,
   Tabs,
+  Image,
 } from '@openedx/paragon';
 import { ChevronLeft } from '@openedx/paragon/icons';
 import { Helmet } from 'react-helmet';
@@ -118,11 +119,16 @@ const ForgotPasswordPage = () => {
                   <Tab title={tabTitle} eventKey={LOGIN_PAGE} />
                 </Tabs>
               <div id="main-content" className="main-content">
-                  <Form id="forget-password-form" name="forget-password-form" className="mw-xs">
+                  <Form id="forget-password-form" name="forget-password-form" className="mw-xs mt-3 mb-2 auth-card">
+                      <div className="text-center mb-4">
+                        <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
+                      </div>
                       <ForgotPasswordAlert email={bannerEmail} emailError={formErrors} status={status} />
-                      <h2 className="h4">
-                          {formatMessage(messages['forgot.password.page.heading'])}
-                        </h2>
+                      <div className="text-center mb-4.5">
+                        <h2 className="auth-card__heading">
+                            {formatMessage(messages['forgot.password.page.heading'])}
+                          </h2>
+                      </div>
                       <p className="mb-4">
                           {formatMessage(messages['forgot.password.page.instructions'])}
                         </p>
@@ -142,7 +148,7 @@ const ForgotPasswordPage = () => {
                           name="submit-forget-password"
                           type="submit"
                           variant="brand"
-                          className="forgot-password--button"
+                          className="forgot-password--button login-button-width mt-3"
                           state={submitState}
                           labels={{
                               default: formatMessage(messages['forgot.password.page.submit.button']),

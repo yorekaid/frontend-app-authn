@@ -1,6 +1,6 @@
 .login-button-width {
-    width: 100%;
-    min-width: 6rem;
+  width: 100%;
+  min-width: 6rem;
 }
 
 .auth-card {
@@ -14,4 +14,181 @@
     border-radius: 0;
     padding: 1rem 0;
   }
+}
+
+/* myEdlinks Redesign Styles */
+
+.auth-card {
+  background-color: var(--pgn-color-white);
+  border-radius: 1rem;
+  box-shadow: none !important;
+  /* Remove shadow to match design */
+  padding: 3rem 4rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.auth-card__logo {
+  height: 200px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.auth-card__heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--pgn-color-gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.auth-card__subheading {
+  font-size: 0.875rem;
+  color: var(--pgn-color-gray-600);
+}
+
+.auth-card__link {
+  color: #1B74E4;
+  /* Blue color from design */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login-button-width {
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  height: 3rem;
+  background-color: #1B74E4;
+  border-color: #1B74E4;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #155bb5 !important;
+    border-color: #155bb5 !important;
+  }
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  border-color: var(--pgn-color-gray-300);
+  height: 3rem;
+  padding: 0.75rem 1rem;
+
+  &:focus {
+    border-color: #1B74E4;
+    box-shadow: 0 0 0 2px rgba(27, 116, 228, 0.2);
+  }
+}
+
+.auth-card__divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--pgn-color-gray-500);
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--pgn-color-gray-200);
+  }
+
+  &::before {
+    margin-right: 1rem;
+  }
+
+  &::after {
+    margin-left: 1rem;
+  }
+}
+
+/* Third party auth grid */
+.third-party-auth-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .btn-social {
+    flex: 1;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    border-color: var(--pgn-color-gray-300);
+    border-radius: 0.5rem;
+    height: 3rem;
+    background-color: white;
+    color: var(--pgn-color-gray-700);
+
+    &:hover {
+      background-color: var(--pgn-color-gray-100);
+    }
+
+    .btn-tpa__font-container,
+    .btn-tpa__text {
+      display: none;
+      /* Hide text, only show icons */
+    }
+
+    .ibtn-tpa__image-icon {
+      margin: 0;
+    }
+  }
+
+  /* Reset specific button colors to match design (outline buttons with color icons) */
+  .btn-oa2-facebook,
+  .btn-oa2-google-oauth2,
+  .btn-oa2-apple-id {
+    background-color: white;
+    border: 1px solid var(--pgn-color-gray-300);
+
+    &:hover,
+    &:focus {
+      background-color: var(--pgn-color-gray-100);
+      border: 1px solid var(--pgn-color-gray-400);
+    }
+  }
+}
+
+.auth-card__remember-me {
+  border-bottom: 1px solid var(--pgn-color-gray-200);
+  padding-bottom: 1.5rem;
+
+  .custom-control-label {
+    font-size: 0.875rem;
+    color: var(--pgn-color-gray-700);
+    font-weight: 500;
+  }
+}
+
+.auth-card__footer {
+  font-size: 0.75rem;
+  color: var(--pgn-color-gray-500);
+  line-height: 1.5;
+
+  a {
+    color: #1B74E4;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Hide default logistration tabs and headings */
+.layout .nav-tabs {
+  display: none !important;
+}
+
+.main-content>h3.mb-4\.5 {
+  display: none !important;
 }

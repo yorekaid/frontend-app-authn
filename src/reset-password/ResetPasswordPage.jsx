@@ -9,6 +9,7 @@ import {
   StatefulButton,
   Tab,
   Tabs,
+  Image,
 } from '@openedx/paragon';
 import { ChevronLeft } from '@openedx/paragon/icons';
 import { Helmet } from 'react-helmet';
@@ -199,9 +200,14 @@ const ResetPasswordPageInner = () => {
                   <Tab title={tabTitle} eventKey={LOGIN_PAGE} />
                 </Tabs>
               <div id="main-content" className="main-content">
-                  <div className="mw-xs">
+                  <div className="mw-xs mt-3 mb-2 auth-card">
+                      <div className="text-center mb-4">
+                        <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
+                      </div>
                       <ResetPasswordFailure errorCode={errorCode} errorMsg={errorMsg} />
-                      <h4>{formatMessage(messages['reset.password'])}</h4>
+                      <div className="text-center mb-4.5">
+                        <h2 className="auth-card__heading">{formatMessage(messages['reset.password'])}</h2>
+                      </div>
                       <p className="mb-4">{formatMessage(messages['reset.password.page.instructions'])}</p>
                       <Form id="set-reset-password-form" name="set-reset-password-form">
                           <PasswordField
@@ -227,7 +233,7 @@ const ResetPasswordPageInner = () => {
                               name="submit-new-password"
                               type="submit"
                               variant="brand"
-                              className="reset-password--button"
+                              className="reset-password--button login-button-width mt-3"
                               state={isResetting ? 'pending' : 'default'}
                               labels={{
                                   default: formatMessage(messages['reset.password']),

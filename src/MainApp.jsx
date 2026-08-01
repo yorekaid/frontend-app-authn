@@ -45,7 +45,7 @@ const MainApp = () => (
             </Helmet>
           {getConfig().ZENDESK_KEY && <Zendesk />}
           <Routes>
-              <Route path="/" element={<Navigate replace to={updatePathWithQueryParams(REGISTER_PAGE)} />} />
+              <Route path="/" element={<Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />} />
               <Route
                   path={REGISTER_EMBEDDED_PAGE}
                   element={<EmbeddedRegistrationRoute><RegistrationPage /></EmbeddedRegistrationRoute>}
@@ -57,9 +57,15 @@ const MainApp = () => (
                     }
                 />
               <Route
+                  path="/login/admin"
+                  element={
+                      <UnAuthOnlyRoute><Logistration selectedPage={LOGIN_PAGE} isAdminLogin={true} /></UnAuthOnlyRoute>
+                    }
+                />
+              <Route
                   path={REGISTER_PAGE}
                   element={
-                      <UnAuthOnlyRoute><Logistration selectedPage={REGISTER_PAGE} /></UnAuthOnlyRoute>
+                      <Navigate replace to={updatePathWithQueryParams(LOGIN_PAGE)} />
                     }
                 />
               <Route path={RESET_PAGE} element={<UnAuthOnlyRoute><ForgotPasswordPage /></UnAuthOnlyRoute>} />

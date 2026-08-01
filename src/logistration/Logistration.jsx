@@ -27,6 +27,7 @@ import { RegisterProvider } from '../register/components/RegisterContext';
 
 const LogistrationPageInner = ({
   selectedPage,
+  isAdminLogin = false,
 }) => {
   const tpaHint = getTpaHint();
   const {
@@ -115,6 +116,7 @@ const LogistrationPageInner = ({
                               <LoginComponentSlot
                                   institutionLogin={institutionLogin}
                                   handleInstitutionLogin={handleInstitutionLogin}
+                                  isAdminLogin={isAdminLogin}
                                 />
                             </div>
                         </>
@@ -151,6 +153,7 @@ const LogistrationPageInner = ({
                                       <LoginComponentSlot
                                           institutionLogin={institutionLogin}
                                           handleInstitutionLogin={handleInstitutionLogin}
+                                          isAdminLogin={isAdminLogin}
                                         />
                                   )
                                   : (
@@ -169,6 +172,11 @@ const LogistrationPageInner = ({
 
 LogistrationPageInner.propTypes = {
   selectedPage: PropTypes.string.isRequired,
+  isAdminLogin: PropTypes.bool,
+};
+
+LogistrationPageInner.defaultProps = {
+  isAdminLogin: false,
 };
 
 /**

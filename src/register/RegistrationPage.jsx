@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { getConfig } from '@edx/frontend-platform';
 import { sendPageEvent, sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Form, Spinner, StatefulButton } from '@openedx/paragon';
+import { Form, Spinner, StatefulButton, Image } from '@openedx/paragon';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -325,10 +325,16 @@ const RegistrationPage = (props) => {
                 ) : (
                 <div
                       className={classNames(
-                          'mw-xs mt-3',
+                          'mw-xs mt-3 mb-2 auth-card',
                           { 'w-100 m-auto pt-4 main-content': registrationEmbedded },
                         )}
                     >
+                      <div className="text-center mb-4">
+                        <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
+                      </div>
+                      <div className="text-center mb-4.5">
+                        <h2 className="auth-card__heading">{formatMessage(messages['register.page.title'], { siteName: getConfig().SITE_NAME })}</h2>
+                      </div>
                       <ThirdPartyAuthAlert
                           currentProvider={currentProvider}
                           platformName={platformName}
@@ -396,7 +402,7 @@ const RegistrationPage = (props) => {
                               name="register-user"
                               type="submit"
                               variant="brand"
-                              className="register-button mt-4 mb-4"
+                              className="register-button login-button-width mt-4 mb-4"
                               state={submitState}
                               labels={{
                                   default: buttonLabel,

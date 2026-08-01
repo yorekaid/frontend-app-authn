@@ -1,6 +1,6 @@
-
 .layout {
   display: flex;
+  min-height: 100vh;
 
   @media (--pgn-size-breakpoint-max-width-lg) {
     flex-direction: column;
@@ -17,8 +17,8 @@
   @media (--pgn-size-breakpoint-min-width-xl) {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 50vw;
-    margin-top: 4rem;
   }
 }
 

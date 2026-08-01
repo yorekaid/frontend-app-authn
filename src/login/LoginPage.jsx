@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { getConfig } from '@edx/frontend-platform';
 import { sendPageEvent, sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Form, StatefulButton } from '@openedx/paragon';
+import { Form, StatefulButton, Image, ModalDialog, Button } from '@openedx/paragon';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
@@ -21,7 +21,7 @@ import { useThirdPartyAuthContext } from '../common-components/components/ThirdP
 import { useThirdPartyAuthHook } from '../common-components/data/apiHook';
 import EnterpriseSSO from '../common-components/EnterpriseSSO';
 import ThirdPartyAuth from '../common-components/ThirdPartyAuth';
-import { LOGIN_PAGE, PENDING_STATE, RESET_PAGE } from '../data/constants';
+import { LOGIN_PAGE, PENDING_STATE, RESET_PAGE, REGISTER_PAGE } from '../data/constants';
 import {
   getActivationStatus,
   getAllPossibleQueryParams,
@@ -39,6 +39,7 @@ import messages from './messages';
 const LoginPage = ({
   institutionLogin,
   handleInstitutionLogin,
+  isAdminLogin = false,
 }) => {
   // Context for third-party auth
   const {
@@ -56,6 +57,9 @@ const LoginPage = ({
     errors,
     setErrors,
   } = useLoginContext();
+
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   // React Query for server state
   const [loginResult, setLoginResult] = useState({ success: false, redirectUrl: '' });
@@ -221,98 +225,164 @@ const LoginPage = ({
 
   if (institutionLogin) {
     return (
-          <InstitutionLogistration
-              secondaryProviders={secondaryProviders}
-              headingTitle={formatMessage(messages['institution.login.page.title'])}
-            />
+      <InstitutionLogistration
+        secondaryProviders={secondaryProviders}
+        headingTitle={formatMessage(messages['institution.login.page.title'])}
+      />
     );
   }
 
   return (
-      <>
-          <Helmet>
-              <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
-            </Helmet>
-          <RedirectLogistration
-              success={loginResult.success}
-              redirectUrl={loginResult.redirectUrl}
-              finishAuthUrl={finishAuthUrl}
-            />
-          <div className="mw-xs mt-3 mb-2 auth-card">
-              <LoginFailureMessage
-                  errorCode={errorCode.type}
-                  errorCount={errorCode.count}
-                  context={errorCode.context}
-                />
-              <ThirdPartyAuthAlert
-                  currentProvider={currentProvider}
-                  platformName={platformName}
-                />
-              <AccountActivationMessage
-                  messageType={activationMsgType}
-                />
-              {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
-              <Form id="sign-in-form" name="sign-in-form">
-                  <FormGroup
-                      name="emailOrUsername"
-                      value={formFields.emailOrUsername}
-                      autoComplete="on"
-                      handleChange={handleOnChange}
-                      handleFocus={handleOnFocus}
-                      errorMessage={errors.emailOrUsername}
-                      floatingLabel={formatMessage(messages['login.user.identity.label'])}
-                    />
-                  <PasswordField
-                      name="password"
-                      value={formFields.password}
-                      autoComplete="off"
-                      showScreenReaderText={false}
-                      showRequirements={false}
-                      handleChange={handleOnChange}
-                      handleFocus={handleOnFocus}
-                      errorMessage={errors.password}
-                      floatingLabel={formatMessage(messages['login.password.label'])}
-                    />
-                  <StatefulButton
-                      name="sign-in"
-                      id="sign-in"
-                      type="submit"
-                      variant="brand"
-                      className="login-button-width"
-                      state={(isLoggingIn ? PENDING_STATE : 'default')}
-                      labels={{
-                          default: formatMessage(messages['sign.in.button']),
-                          pending: 'pending',
-                        }}
-                      onClick={handleSubmit}
-                      onMouseDown={(event) => event.preventDefault()}
-                    />
-                  <Link
-                      id="forgot-password"
-                      name="forgot-password"
-                      className="btn btn-link font-weight-500 text-body"
-                      to={updatePathWithQueryParams(RESET_PAGE)}
-                      onClick={trackForgotPasswordLinkClick}
-                    >
-                      {formatMessage(messages['forgot.password'])}
-                    </Link>
-                  <ThirdPartyAuth
-                      currentProvider={currentProvider}
-                      providers={providers}
-                      secondaryProviders={secondaryProviders}
-                      handleInstitutionLogin={handleInstitutionLogin}
-                      thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
-                      isLoginPage
-                    />
-                </Form>
+    <>
+      <Helmet>
+        <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
+      </Helmet>
+      <RedirectLogistration
+        success={loginResult.success}
+        redirectUrl={loginResult.redirectUrl}
+        finishAuthUrl={finishAuthUrl}
+      />
+      <div className="mw-xs mt-3 mb-0 auth-card">
+        <div className="text-center mb-0">
+          <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
+        </div>
+        <div className="text-center mb-4.5">
+          <h2 className="auth-card__heading">{formatMessage(messages['login.page.custom.heading'])}</h2>
+        </div>
+        <LoginFailureMessage
+          errorCode={errorCode.type}
+          errorCount={errorCode.count}
+          context={errorCode.context}
+        />
+        <ThirdPartyAuthAlert
+          currentProvider={currentProvider}
+          platformName={platformName}
+        />
+        <AccountActivationMessage
+          messageType={activationMsgType}
+        />
+        {showResetPasswordSuccessBanner && <ResetPasswordSuccess />}
+        <Form id="sign-in-form" name="sign-in-form">
+          {isAdminLogin && (
+            <>
+              <FormGroup
+                name="emailOrUsername"
+                value={formFields.emailOrUsername}
+                autoComplete="on"
+                handleChange={handleOnChange}
+                handleFocus={handleOnFocus}
+                errorMessage={errors.emailOrUsername}
+                floatingLabel={formatMessage(messages['login.user.identity.label'])}
+              />
+              <PasswordField
+                name="password"
+                value={formFields.password}
+                autoComplete="off"
+                showScreenReaderText={false}
+                showRequirements={false}
+                handleChange={handleOnChange}
+                handleFocus={handleOnFocus}
+                errorMessage={errors.password}
+                floatingLabel={formatMessage(messages['login.password.label'])}
+              />
+              <StatefulButton
+                name="sign-in"
+                id="sign-in"
+                type="submit"
+                variant="primary"
+                className="login-button-width mt-1"
+                state={(isLoggingIn ? PENDING_STATE : 'default')}
+                labels={{
+                  default: formatMessage(messages['sign.in.button']),
+                  pending: 'pending',
+                }}
+                onClick={handleSubmit}
+                onMouseDown={(event) => event.preventDefault()}
+              />
+            </>
+          )}
+          {/* <div className="text-right mt-2 mb-4">
+            <Link
+              id="forgot-password"
+              name="forgot-password"
+              className="btn btn-link p-0 font-weight-500 auth-card__link"
+              to={updatePathWithQueryParams(RESET_PAGE)}
+              onClick={trackForgotPasswordLinkClick}
+            >
+              {formatMessage(messages['forgot.password'])}
+            </Link>
+          </div> */}
+
+          {isAdminLogin && ((providers && providers.length > 0) || (secondaryProviders && secondaryProviders.length > 0)) && (
+            <div className="auth-card__divider">
+              <span>Atau masuk menggunakan</span>
             </div>
-        </>
+          )}
+
+          <ThirdPartyAuth
+            currentProvider={currentProvider}
+            providers={providers}
+            secondaryProviders={secondaryProviders}
+            handleInstitutionLogin={handleInstitutionLogin}
+            thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
+            isLoginPage
+          />
+
+          {/* <div className="auth-card__remember-me mt-4">
+            <Form.Checkbox id="remember-me" name="remember-me" defaultChecked>
+              Ingat perangkat ini
+            </Form.Checkbox>
+          </div> */}
+
+          <div className="auth-card__footer mt-4 text-center">
+            By continuing, you agree to our <a href="#" onClick={(e) => { e.preventDefault(); setShowTermsModal(true); }}>Terms of Use</a> and <a href="#" onClick={(e) => { e.preventDefault(); setShowPrivacyModal(true); }}>Privacy Policy</a>.
+          </div>
+        </Form>
+      </div>
+
+      <ModalDialog
+        isOpen={showTermsModal}
+        onClose={() => setShowTermsModal(false)}
+        size="md"
+      >
+        <ModalDialog.Header>
+          <ModalDialog.Title>Terms of Use</ModalDialog.Title>
+        </ModalDialog.Header>
+        <ModalDialog.Body>
+          <p>These are the terms of use. This is placeholder content.</p>
+        </ModalDialog.Body>
+        <ModalDialog.Footer>
+          <Button variant="outline-primary" onClick={() => setShowTermsModal(false)}>Close</Button>
+        </ModalDialog.Footer>
+      </ModalDialog>
+
+      <ModalDialog
+        isOpen={showPrivacyModal}
+        onClose={() => setShowPrivacyModal(false)}
+        size="md"
+      >
+        <ModalDialog.Header>
+          <ModalDialog.Title>Privacy Policy</ModalDialog.Title>
+        </ModalDialog.Header>
+        <ModalDialog.Body>
+          <p>This is the privacy policy. This is placeholder content.</p>
+        </ModalDialog.Body>
+        <ModalDialog.Footer>
+          <Button variant="outline-primary" onClick={() => setShowPrivacyModal(false)}>Close</Button>
+        </ModalDialog.Footer>
+      </ModalDialog>
+    </>
   );
 };
 
 LoginPage.propTypes = {
   institutionLogin: PropTypes.bool.isRequired,
   handleInstitutionLogin: PropTypes.func.isRequired,
+  isAdminLogin: PropTypes.bool,
+};
+
+LoginPage.defaultProps = {
+  isAdminLogin: false,
 };
 
 export default LoginPage;
