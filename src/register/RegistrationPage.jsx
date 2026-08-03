@@ -295,58 +295,58 @@ const RegistrationPage = (props) => {
   const renderForm = () => {
     if (institutionLogin) {
       return (
-              <InstitutionLogistration
-                  secondaryProviders={secondaryProviders}
-                  headingTitle={formatMessage(messages['register.institution.login.page.title'])}
-                />
+        <InstitutionLogistration
+          secondaryProviders={secondaryProviders}
+          headingTitle={formatMessage(messages['register.institution.login.page.title'])}
+        />
       );
     }
     return (
-          <>
-              <Helmet>
-                  <title>{formatMessage(messages['register.page.title'], { siteName: getConfig().SITE_NAME })}</title>
-                </Helmet>
-              <RedirectLogistration
-                  host={host}
-                  authenticatedUser={registrationResult.authenticatedUser}
-                  success={registrationResult.success}
-                  redirectUrl={registrationResult.redirectUrl}
-                  finishAuthUrl={finishAuthUrl}
-                  optionalFields={optionalFields}
-                  registrationEmbedded={registrationEmbedded}
-                  redirectToProgressiveProfilingPage={
-                        getConfig().ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN && !!Object.keys(optionalFields.fields).length
-                    }
-                />
-              {autoSubmitRegForm && !errorCode.type ? (
-                  <div className="mw-xs mt-5 text-center">
-                      <Spinner animation="border" variant="primary" id="tpa-spinner" />
-                    </div>
-                ) : (
-                <div
-                      className={classNames(
-                          'mw-xs mt-3 mb-2 auth-card',
-                          { 'w-100 m-auto pt-4 main-content': registrationEmbedded },
-                        )}
-                    >
-                      <div className="text-center mb-4">
-                        <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
-                      </div>
-                      <div className="text-center mb-4.5">
-                        <h2 className="auth-card__heading">{formatMessage(messages['register.page.title'], { siteName: getConfig().SITE_NAME })}</h2>
-                      </div>
-                      <ThirdPartyAuthAlert
-                          currentProvider={currentProvider}
-                          platformName={platformName}
-                          referrer={REGISTER_PAGE}
-                        />
-                      <RegistrationFailure
-                          errorCode={errorCode.type}
-                          failureCount={errorCode.count}
-                          context={{ provider: currentProvider, errorMessage: thirdPartyAuthErrorMessage }}
-                        />
-                      <Form id="registration-form" name="registration-form">
-                          <NameField
+      <>
+        <Helmet>
+          <title>{formatMessage(messages['register.page.title'], { siteName: getConfig().SITE_NAME })}</title>
+        </Helmet>
+        <RedirectLogistration
+          host={host}
+          authenticatedUser={registrationResult.authenticatedUser}
+          success={registrationResult.success}
+          redirectUrl={registrationResult.redirectUrl}
+          finishAuthUrl={finishAuthUrl}
+          optionalFields={optionalFields}
+          registrationEmbedded={registrationEmbedded}
+          redirectToProgressiveProfilingPage={
+            getConfig().ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN && !!Object.keys(optionalFields.fields).length
+          }
+        />
+        {autoSubmitRegForm && !errorCode.type ? (
+          <div className="mw-xs mt-5 text-center">
+            <Spinner animation="border" variant="primary" id="tpa-spinner" />
+          </div>
+        ) : (
+          <div
+            className={classNames(
+              'mw-xs mt-3 mb-2 auth-card',
+              { 'w-100 m-auto pt-4 main-content': registrationEmbedded },
+            )}
+          >
+            <div className="text-center mb-4">
+              <Image className="auth-card__logo" alt={getConfig().SITE_NAME} src="https://res.cloudinary.com/bl0xujfz/image/upload/v1785538975/clipl_r4rs7m.png" />
+            </div>
+            <div className="text-center mb-4.5">
+              <h2 className="auth-card__heading">{formatMessage(messages['register.page.title'], { siteName: getConfig().SITE_NAME })}</h2>
+            </div>
+            <ThirdPartyAuthAlert
+              currentProvider={currentProvider}
+              platformName={platformName}
+              referrer={REGISTER_PAGE}
+            />
+            <RegistrationFailure
+              errorCode={errorCode.type}
+              failureCount={errorCode.count}
+              context={{ provider: currentProvider, errorMessage: thirdPartyAuthErrorMessage }}
+            />
+            <Form id="registration-form" name="registration-form">
+              {/* <NameField
                               name="name"
                               value={formFields.name}
                               shouldFetchUsernameSuggestions={!formFields.username.trim()}
@@ -387,17 +387,17 @@ const RegistrationPage = (props) => {
                                   errorMessage={errors.password}
                                   floatingLabel={formatMessage(messages['registration.password.label'])}
                                 />
-                            )}
-                          <ConfigurableRegistrationForm
-                              email={formFields.email}
-                              fieldErrors={errors}
-                              formFields={configurableFormFields}
-                              setFieldErrors={registrationEmbedded ? setTemporaryErrors : setErrors}
-                              setFormFields={setConfigurableFormFields}
-                              autoSubmitRegisterForm={autoSubmitRegForm}
-                              fieldDescriptions={fieldDescriptions}
-                            />
-                          <StatefulButton
+                            )} */}
+              <ConfigurableRegistrationForm
+                email={formFields.email}
+                fieldErrors={errors}
+                formFields={configurableFormFields}
+                setFieldErrors={registrationEmbedded ? setTemporaryErrors : setErrors}
+                setFormFields={setConfigurableFormFields}
+                autoSubmitRegisterForm={autoSubmitRegForm}
+                fieldDescriptions={fieldDescriptions}
+              />
+              {/* <StatefulButton
                               id="register-user"
                               name="register-user"
                               type="submit"
@@ -410,20 +410,20 @@ const RegistrationPage = (props) => {
                                 }}
                               onClick={handleSubmit}
                               onMouseDown={(e) => e.preventDefault()}
-                            />
-                          {!registrationEmbedded && (
-                            <ThirdPartyAuth
-                                  currentProvider={currentProvider}
-                                  providers={providers}
-                                  secondaryProviders={secondaryProviders}
-                                  handleInstitutionLogin={handleInstitutionLogin}
-                                  thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
-                                />
-                            )}
-                        </Form>
-                    </div>
-                )}
-            </>
+                            /> */}
+              {!registrationEmbedded && (
+                <ThirdPartyAuth
+                  currentProvider={currentProvider}
+                  providers={providers}
+                  secondaryProviders={secondaryProviders}
+                  handleInstitutionLogin={handleInstitutionLogin}
+                  thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
+                />
+              )}
+            </Form>
+          </div>
+        )}
+      </>
     );
   };
 
